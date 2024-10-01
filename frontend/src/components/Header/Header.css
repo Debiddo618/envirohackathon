@@ -1,0 +1,21 @@
+.profile {
+    width: 40px; /* Width for the profile image */
+    height: 40px; /* Height for the profile image */
+    border-radius: 50%; /* Circular image */
+}
+
+.bell-icon {
+    font-size: 1.5rem; /* Size for the bell icon */
+}
+
+/* Additional styles for responsiveness */
+@media (max-width: 576px) {
+    .profile {
+        width: 30px; /* Smaller profile image on extra small screens */
+        height: 30px; /* Smaller profile image on extra small screens */
+    }
+    
+    .bell-icon {
+        font-size: 1.2rem; /* Smaller icon on extra small screens */
+    }
+}
