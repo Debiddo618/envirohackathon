@@ -1,0 +1,10 @@
+Step 1: Register our App with Google's OAuth Server
+Step 2: Define the User model
+Step 3: Discuss PassportJS
+Step 4: Install & Configure Session middleware
+Step 5: Install PassportJS
+Step 6: Create a Passport config module
+Step 7: Install a Passport Strategy for OAuth
+Step 8: Configure Passport
+Step 9: Define routes for authentication
+Step 10: Add Login/Logout UI
