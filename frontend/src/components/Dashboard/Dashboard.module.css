@@ -8,11 +8,16 @@
 
 .section1 {
   height: 25vh;
-  background-color: red;
+  /* background-color: red; */
   width: 100%;
   display: flex;
   gap: 16px;
   padding: 10px;
+}
+
+.component{
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .section1 .component1,
@@ -21,12 +26,12 @@
 .section1 .component4 {
   height: 100%;
   width: 25%;
-  background-color: green;
+  /* background-color: green; */
 }
 
 .section2 {
-  height: 75vh;
-  background-color: blue;
+  flex:1;
+  /* background-color: blue; */
   width: 100%;
   display: flex;
   gap: 10px;
@@ -37,5 +42,5 @@
 .section2 .component2 {
   height: 100%;
   width: 50%;
-  background-color: yellow;
+  /* background-color: yellow; */
 }
