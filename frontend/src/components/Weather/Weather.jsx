@@ -41,7 +41,6 @@ const Weather = () => {
     }
   }, [weather]);
 
-
   // Render weather information if available
   return (
     <>
