@@ -9,9 +9,9 @@ export default function App() {
   return (
     <>
       <Header />
-      <Navbar />
-      <Notification />
-      <Weather />
+      {/* <Navbar /> */}
+      {/* <Notification /> */}
+      {/* <Weather /> */}
     </>
   );
 }

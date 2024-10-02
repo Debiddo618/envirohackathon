@@ -55,16 +55,6 @@ const Notification = () => {
     // Hide the modal after submission
     setIsVisible(false);
   };
-<<<<<<< HEAD
-
-  const closeModal = () => {
-    setIsVisible(false);
-  };
-
-  if (!isVisible) return null; // Don't render if not visible
-
-=======
->>>>>>> 7489843f23c74980745edaec7b634b518beda99b
   return (
     <div className="modal-overlay" onClick={closeModal}>
       <div className="contact-form" onClick={(e) => e.stopPropagation()}>
