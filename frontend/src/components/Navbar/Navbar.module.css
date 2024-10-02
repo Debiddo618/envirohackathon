@@ -4,8 +4,50 @@
     margin-top: 36px;
     margin-right: 170px;
     margin-left: 170px;
+    padding: 0 10px;
 }
 
 .section1{
     display: flex;
 }
+
+.logo{
+    width: 55px;
+    height: 55px;
+    background-color: grey;
+    border-radius: 5px;
+    margin-right: 14px;
+}
+
+.locationdate{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.date{
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+.section2{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    width: 200px;
+}
+
+.button{
+    background-color: transparent;
+    color: black;
+    height: 100%;
+    aspect-ratio: 1/1;
+    font-size: 30px;
+    padding: 0;
+}
+
+.button:hover{
+    background-color: transparent;
+}
+
