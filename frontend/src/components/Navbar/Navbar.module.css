@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 36px;
+    margin-right: 170px;
+    margin-left: 170px;
+}
+
+.section1{
+    display: flex;
+}

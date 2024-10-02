@@ -6,9 +6,11 @@ const Weather = () => {
   const [currentWeather, setCurrentWeather] = useState(null);
   const getCurrentWeather = () => {
     const currentDateTime = new Date().toISOString().split(".")[0] + "Z";
+
     const currentForecast = weather.reduce((closest, obj) => {
       const objDateTime = new Date(obj.time);
       const diff = Math.abs(currentDateTime - objDateTime);
+
       if (
         !closest ||
         diff < Math.abs(currentDateTime - new Date(closest.time))

@@ -1,19 +1,31 @@
-import "./Navbar.css"
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from "react-router-dom";
+import styles from "./NavBar.module.css";
 
-export default function Navbar() {
-    return (
-        <nav className="navbar navbar-expand-lg navbar-light ">
-            <ul className="navbar-nav d-flex flex-column">
-                <li className="nav-item"><a className="nav-link" href="#">Dashboard</a></li>
-                <li className="nav-item"><a className="nav-link" href="#">New Link</a></li>
-                <li className="nav-item"><a className="nav-link" href="#">Messages</a></li>
-                <li className="nav-item"><a className="nav-link" href="#">Reports</a></li>
-                <li className="nav-item"><a className="nav-link" href="#">Settings</a></li>
-            </ul>
-        </nav>
-    );
+const Navbar = () => {
+  return (
+    <>
+      <nav className={`${styles.container}`}>
+        <div className={styles.section1}>
+          <div className="logo">Logo</div>
+          <div className="locationdate">
+            <div className="location">
+              Address, Location
+            </div>
+            <div className="date">
+              Wednesday 2 October
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.section2}>
+          <button></button>
+          <button></button>
+          <button></button>
+        </div>
+
+      </nav>
+    </>
+  );
 };
 
-
-    
+export default Navbar;
