@@ -48,7 +48,6 @@ const Notification = () => {
       message: "",
     });
   };
-
   return (
     <div className="contact-form">
       <h3>Enable Notifications</h3>
