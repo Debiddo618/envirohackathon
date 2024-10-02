@@ -27,7 +27,6 @@ const Weather = () => {
     const url = `https://api.tomorrow.io/v4/weather/forecast?location=42.3478,-71.0466&apikey=${
       import.meta.env.VITE_TOMORROW_KEY
     }`;
-
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -35,7 +34,6 @@ const Weather = () => {
         getCurrentWeather();
       });
   }, []);
-
   // Call getCurrentWeather whenever weather data changes
   useEffect(() => {
     if (weather.length > 0) {
@@ -68,5 +66,4 @@ const Weather = () => {
     </>
   );
 };
-
 export default Weather;

@@ -1,9 +1,1 @@
-body {
-  margin: 0; /* Reset default margin */
-  padding: 0; /* Reset default padding */
-}
 
-.header {
-  width: 100%; /* Ensure header takes full width */
-  margin: 0
-}

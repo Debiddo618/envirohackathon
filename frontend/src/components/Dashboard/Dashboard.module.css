@@ -1,0 +1,41 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 24px 170px;
+}
+
+.section1 {
+  height: 25vh;
+  background-color: red;
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  padding: 10px;
+}
+
+.section1 .component1,
+.section1 .component2,
+.section1 .component3,
+.section1 .component4 {
+  height: 100%;
+  width: 25%;
+  background-color: green;
+}
+
+.section2 {
+  height: 75vh;
+  background-color: blue;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+.section2 .component1,
+.section2 .component2 {
+  height: 100%;
+  width: 50%;
+  background-color: yellow;
+}
