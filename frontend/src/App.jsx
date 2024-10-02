@@ -3,15 +3,16 @@ import Navbar from "./components/Navbar/Navbar";
 import Header from "./components/Header/Header";
 import Notification from "./components/Notification/Notification";
 import Weather from "./components/Weather/Weather";
+import Map from "./components/Map/Map";
 
-//*test
 export default function App() {
   return (
     <>
-      <Header />
+      {/* <Header />
       <Navbar />
-      <Notification />
-      <Weather />
+      <Notification /> */}
+      {/* <Weather /> */}
+      <Map />
     </>
   );
 }
