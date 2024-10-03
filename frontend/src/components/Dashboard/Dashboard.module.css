@@ -8,14 +8,13 @@
 
 .section1 {
   height: 25vh;
-  /* background-color: red; */
   width: 100%;
   display: flex;
   gap: 16px;
   padding: 10px;
 }
 
-.component{
+.component {
   border-radius: 10px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
@@ -30,11 +29,11 @@
 }
 
 .section2 {
-  flex:1;
+  flex: 1;
   /* background-color: blue; */
   width: 100%;
   display: flex;
-  gap: 10px;
+  gap: 16px;
   padding: 10px;
 }
 

@@ -1,4 +1,5 @@
 import styles from "./Dashboard.module.css";
+import Weather from "../Weather/Weather";
 
 const Dashboard = () => {
   return (
@@ -6,6 +7,7 @@ const Dashboard = () => {
       <div className={`${styles.container}`}>
         <div className={styles.section1}>
           <div className={`${styles.component} ${styles.component1}`}>
+            <Weather/>
           </div>
           <div className={`${styles.component} ${styles.component2}`}></div>
           <div className={`${styles.component} ${styles.component3}`}></div>
