@@ -5,14 +5,16 @@ import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement
 // Register Chart.js components
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
 
-
+// temperature and rain
 
 const WeatherChart = () => {
   const data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    // X-axis
+    labels: [1,2,3,4,5,6,7,8,9,10],
     datasets: [
       {
-        label: "My First dataset",
+        label: "Rain",
+        // Y-axis
         data: [65, 59, 80, 81, 56, 55, 40],
         fill: false,
         backgroundColor: "rgba(75,192,192,0.4)",
