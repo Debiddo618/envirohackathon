@@ -2,6 +2,8 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Notification from "./components/Notification/Notification";
 import Weather from "./components/Weather/Weather";
+import Sunlight from "./components/Sunlight/Sunlight";
+import WeatherChart from "./components/WeatherChart/WeatherChart";
 import Map from "./components/Map/Map";
 import Navbar from "./components/Navbar/Navbar";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -15,10 +17,10 @@ export default function App() {
       <Navbar></Navbar>
       {/* <Landingpage /> */}
       <Routes>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/sunlight" element={<Sunlight />} />
+        <Route path="/weather" element={<WeatherChart />} />
        <Route path="/" element={<Landingpage />} />
-       <Route path="/home" element={<h1>Home</h1>} />
-       <Route path="/dashboard" element={<Dashboard />} />
-
       </Routes>
     </div>
   );
