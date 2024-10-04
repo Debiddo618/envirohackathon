@@ -1,30 +1,33 @@
-import { useEffect, useState } from "react";
+import styles from "./Sunlight.module.css";
 
-const Sunlight = () => {
-    const [sunInfo, setSunInfo] = useState(null);
-
-    useEffect(() => {
-        const url = "https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400";
-        fetch(url)
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data.results.sunrise);
-                setSunInfo(data.results);
-            });
-    }, []);
-
-    return (
-        <>
-            {sunInfo ? (
-                <>
-                    <p>Sunrise: {sunInfo.sunrise}</p>
-                    <p>Sunset: {sunInfo.sunset}</p>
-                </>
-            ) : (
-                <p>Loading...</p>
-            )}
-        </>
-    );
+const Sunlight = ({ sunRise, sunSet }) => {
+  function convertTo12HourTime(dateTimeString) {
+    const date = new Date(dateTimeString);
+    let hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    const minutesStr = minutes < 10 ? "0" + minutes : minutes;
+    const strTime = hours + ":" + minutesStr + " " + ampm;
+    return strTime;
+  }
+  return (
+    <>
+      {sunRise ? (
+        <div className={styles.container}>
+          <h1 className={styles.sunrise}>
+            Sunrise: {convertTo12HourTime(sunRise)}
+          </h1>
+          <h1 className={styles.sunset}>
+            Sunset: {convertTo12HourTime(sunSet)}
+          </h1>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </>
+  );
 };
 
 export default Sunlight;

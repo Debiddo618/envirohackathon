@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const days = [
     "Sunday",
     "Monday",
@@ -42,6 +42,24 @@ const Navbar = () => {
             <div className="location">Address, Location</div>
             <div className={styles.date}>{formattedDate}</div>
           </div>
+        </div>
+
+        {/* Needs to be deleted */}
+        <div className={styles.section3}>
+          {props.user ? (
+            <>
+              <p>Hello {props.user.username}</p>
+              <Link
+                className="h2"
+                to="users/signin"
+                onClick={props.handleSignout}
+              >
+                Sign Out
+              </Link>
+            </>
+          ) : (
+            <p>No user signed in</p>
+          )}
         </div>
 
         <div className={styles.section2}>

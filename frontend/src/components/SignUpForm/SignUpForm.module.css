@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    margin-top: 50px;
+    background-color: white;
+}
+
+.logoImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.formContainer {
+    flex: 1;
+    min-height: 100vh;
+    margin: 30px;
+}
+
+.signup {
+    display: flex;
+    gap: 5px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 2rem;
+    background-color: black;
+}
+
+.img {
+    width: 150px;
+    margin: 0 auto;
+    box-shadow: #F4BE1E;
+    box-shadow: 0 5px 10px #F4BE1E;
+    border-radius: 100%;
+
+}
+
+.button:disabled,
+.button,
+.button:hover {
+    background-color: #F4BE1E;
+    border: none;
+    color: white;
+}
