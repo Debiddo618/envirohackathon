@@ -8,7 +8,7 @@ const Dashboard = () => {
       <div className={`${styles.container}`}>
         <div className={styles.section1}>
           <div className={`${styles.component} ${styles.component1}`}>
-            <Weather />
+            {/* <Weather /> */}
           </div>
           <div className={`${styles.component} ${styles.component2}`}>
             <Sunlight />
