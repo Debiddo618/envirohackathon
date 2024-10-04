@@ -15,20 +15,16 @@ const Sunlight = ({ sunRise, sunSet }) => {
   return (
     <>
       {sunRise ? (
-        <>
+        <div className={styles.container}>
           <h1 className={styles.sunrise}>
             Sunrise: {convertTo12HourTime(sunRise)}
           </h1>
           <h1 className={styles.sunset}>
             Sunset: {convertTo12HourTime(sunSet)}
           </h1>
-        </>
-      ) : (
-        // <p>Loading...</p>
-        <div className={styles.container}>
-          <h1 className={styles.sunrise}>Sunrise: 6:30 PM <span></span></h1>
-          <h1 className={styles.sunset}>Sunset: 7:30 AM</h1>
         </div>
+      ) : (
+        <p>Loading...</p>
       )}
     </>
   );
