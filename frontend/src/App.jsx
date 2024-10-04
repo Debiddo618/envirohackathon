@@ -3,7 +3,7 @@ import Header from "./components/Header/Header";
 import Notification from "./components/Notification/Notification";
 import Weather from "./components/Weather/Weather";
 import Sunlight from "./components/Sunlight/Sunlight";
-import WeatherChart from "./components/WeatherChart/WeatherChart";
+import WeatherChart from "./components/TempChart/TempChart";
 import Map from "./components/Map/Map";
 import Navbar from "./components/Navbar/Navbar";
 import Dashboard from "./components/Dashboard/Dashboard";

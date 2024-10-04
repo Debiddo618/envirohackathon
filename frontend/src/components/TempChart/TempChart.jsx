@@ -10,8 +10,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import annotationPlugin from 'chartjs-plugin-annotation';
-import styles from "./WeatherChart.module.css";
+import annotationPlugin from "chartjs-plugin-annotation";
+import styles from "./TempChart.module.css";
 
 // Register Chart.js components and plugins
 ChartJS.register(
@@ -25,7 +25,7 @@ ChartJS.register(
   annotationPlugin
 );
 
-const WeatherChart = () => {
+const TempChart = () => {
   const [days, setDays] = useState(3);
   const [maxtemp, setMaxTemp] = useState([]);
   const [mintemp, setMinTemp] = useState([]);
@@ -36,7 +36,6 @@ const WeatherChart = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setMaxTemp(data.daily.temperature_2m_max);
         setMinTemp(data.daily.temperature_2m_min);
         setDate(data.daily.time);
@@ -75,13 +74,13 @@ const WeatherChart = () => {
       x: {
         title: {
           display: true,
-          text: 'Date',
+          text: "Date",
         },
       },
       y: {
         title: {
           display: true,
-          text: 'Temperature (°F)',
+          text: "Temperature (°F)",
         },
         beginAtZero: true,
       },
@@ -89,20 +88,20 @@ const WeatherChart = () => {
     plugins: {
       title: {
         display: true,
-        text: 'Temperature Forecast',
+        text: "Temperature Forecast",
       },
       annotation: {
         annotations: {
           line1: {
-            type: 'line',
+            type: "line",
             xMin: 6,
             xMax: 6,
-            borderColor: 'red',
+            borderColor: "red",
             borderWidth: 2,
             label: {
-              content: '7th Day',
+              content: "7th Day",
               enabled: true,
-              position: 'start',
+              position: "start",
             },
           },
         },
@@ -112,20 +111,6 @@ const WeatherChart = () => {
 
   return (
     <div>
-      <div>
-        <label className={styles.label} htmlFor="dayRange">
-          Days: {days}
-        </label>
-        <input
-          type="range"
-          className={styles.days}
-          min="1"
-          max="16"
-          value={days}
-          id="dayRange"
-          onChange={handleRangeChange}
-        />
-      </div>
       <div className={styles.chartContainer}>
         <Line
           className={styles.chart}
@@ -135,8 +120,22 @@ const WeatherChart = () => {
           height={400}
         />
       </div>
+      <div>
+        <label className={styles.label} htmlFor="dayRange">
+          Days: {days}
+        </label>
+        <input
+          type="range"
+          className={styles.days}
+          min="3"
+          max="16"
+          value={days}
+          id="dayRange"
+          onChange={handleRangeChange}
+        />
+      </div>
     </div>
   );
 };
 
-export default WeatherChart;
+export default TempChart;
