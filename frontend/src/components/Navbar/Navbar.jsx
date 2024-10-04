@@ -44,6 +44,7 @@ const Navbar = (props) => {
           </div>
         </div>
 
+        {/* Needs to be deleted */}
         <div className={styles.section3}>
           {props.user ? (
             <>
