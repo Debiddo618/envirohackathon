@@ -24,12 +24,14 @@
 .container:hover .sunset {
   transform: translateY(0);
   transition: all 0.5s;
+  transition-delay: 0.5s;
 }
 
 .sunrise {
   position: absolute;
   top: 10%;
   transition: all 0.5s;
+  transition-delay: 0.5s;
 }
 
 .sunset {
@@ -76,6 +78,6 @@
     0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3),
     0 0 40px rgba(255, 255, 255, 0.3), 0 0 60px rgba(255, 255, 255, 0.3);
   left: 50%;
-  top:-250%;
+  top: -250%;
   transform: translate(-50%, 0);
 }
