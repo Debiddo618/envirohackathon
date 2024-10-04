@@ -31,9 +31,13 @@
 }
 
 .icon{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon img{
+  width: 75px;
+  height: 75px;
 }
 
 .line{
