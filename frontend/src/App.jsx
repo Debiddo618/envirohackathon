@@ -12,7 +12,6 @@ import { faHourglass1 } from "@fortawesome/free-solid-svg-icons";
 import Landingpage from "./components/Landingpage/Landingpage";
 
 export default function App() {
-  
   return (
     <div className="container-fluid">
       <Navbar></Navbar>
@@ -21,7 +20,8 @@ export default function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/sunlight" element={<Sunlight />} />
         <Route path="/weather" element={<WeatherChart />} />
-       <Route path="/" element={<Landingpage />} />
+        <Route path="/" element={<Landingpage />} />
+        
       </Routes>
     </div>
   );
