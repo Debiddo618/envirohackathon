@@ -1,0 +1,147 @@
+[
+  {
+    "name": "Rice",
+    "rain_max": 2.80,
+    "rain_min": 2.15
+  },
+  {
+    "name": "Sugarcane",
+    "rain_max": 2.51,
+    "rain_min": 1.87
+  },
+  {
+    "name": "Cotton",
+    "rain_max": 2.30,
+    "rain_min": 1.40
+  },
+  {
+    "name": "Tobacco",
+    "rain_max": 2.72,
+    "rain_min": 1.94
+  },
+  {
+    "name": "Tea",
+    "rain_max": 2.89,
+    "rain_min": 2.24
+  },
+  {
+    "name": "Coffee",
+    "rain_max": 2.71,
+    "rain_min": 1.75
+  },
+  {
+    "name": "Banana",
+    "rain_max": 2.62,
+    "rain_min": 1.56
+  },
+  {
+    "name": "Cocoa",
+    "rain_max": 2.92,
+    "rain_min": 1.98
+  },
+  {
+    "name": "Maize",
+    "rain_max": 2.48,
+    "rain_min": 1.57
+  },
+  {
+    "name": "Soybean",
+    "rain_max": 2.59,
+    "rain_min": 1.67
+  },
+  {
+    "name": "Rice paddy",
+    "rain_max": 2.86,
+    "rain_min": 1.88
+  },
+  {
+    "name": "Wheat",
+    "rain_max": 2.33,
+    "rain_min": 1.53
+  },
+  {
+    "name": "Avocado",
+    "rain_max": 2.79,
+    "rain_min": 1.86
+  },
+  {
+    "name": "Potato",
+    "rain_max": 2.42,
+    "rain_min": 1.67
+  },
+  {
+    "name": "Pineapple",
+    "rain_max": 2.84,
+    "rain_min": 2.08
+  },
+  {
+    "name": "Alfalfa",
+    "rain_max": 2.78,
+    "rain_min": 1.62
+  },
+  {
+    "name": "Barley",
+    "rain_max": 2.23,
+    "rain_min": 1.44
+  },
+  {
+    "name": "Bean",
+    "rain_max": 2.24,
+    "rain_min": 1.50
+  },
+  {
+    "name": "Cabbage",
+    "rain_max": 2.36,
+    "rain_min": 1.64
+  },
+  {
+    "name": "Citrus",
+    "rain_max": 2.55,
+    "rain_min": 1.77
+  },
+  {
+    "name": "Melon",
+    "rain_max": 2.29,
+    "rain_min": 1.56
+  },
+  {
+    "name": "Onion",
+    "rain_max": 2.22,
+    "rain_min": 1.52
+  },
+  {
+    "name": "Peanut",
+    "rain_max": 2.36,
+    "rain_min": 1.64
+  },
+  {
+    "name": "Pea",
+    "rain_max": 2.18,
+    "rain_min": 1.48
+  },
+  {
+    "name": "Pepper",
+    "rain_max": 2.44,
+    "rain_min": 1.68
+  },
+  {
+    "name": "Sorghum",
+    "rain_max": 2.24,
+    "rain_min": 1.50
+  },
+  {
+    "name": "Sugarbeet",
+    "rain_max": 2.36,
+    "rain_min": 1.62
+  },
+  {
+    "name": "Sunflower",
+    "rain_max": 2.34,
+    "rain_min": 1.61
+  },
+  {
+    "name": "Tomato",
+    "rain_max": 2.26,
+    "rain_min": 1.56
+  }
+]
