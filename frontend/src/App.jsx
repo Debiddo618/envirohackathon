@@ -42,6 +42,7 @@ export default function App() {
       <Navbar user={user} handleSignout={handleSignout} />
       {/* <Landingpage /> */}
       <Routes>
+        <Route path="/cropchart" element={<CropChart />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/sunlight" element={<Sunlight />} />
         <Route path="/weather" element={<WeatherChart />} />
