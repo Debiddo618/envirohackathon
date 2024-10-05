@@ -12,6 +12,10 @@ import Landingpage from "./components/Landingpage/Landingpage";
 import SignUpForm from "./components/SignUpForm/SignUpForm";
 import SignInForm from "./components/SignInForm/SignInForm";
 import { useState, useEffect } from "react";
+import CropChart from "./components/CropChart/CropChart";
+import ForecastRainGraph from "./components/ForecastRainGraph/ForecastRainGraph";
+import RainPage from "./components/RainPage/RainPage";
+
 
 /*--------------------services--------------- */
 import * as authService from "./services/authService";
@@ -43,6 +47,7 @@ export default function App() {
       {/* <Landingpage /> */}
       <Routes>
         <Route path="/cropchart" element={<CropChart />} />
+        <Route path="rain" element={<RainPage/>}/>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/sunlight" element={<Sunlight />} />
         <Route path="/weather" element={<WeatherChart />} />
