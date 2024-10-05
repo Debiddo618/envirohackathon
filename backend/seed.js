@@ -12,9 +12,7 @@ const data = require('./data.json');
         
         // Insert new crops from the data.json file
         const crops = await Crop.create(data);
-        
-        console.log(`${crops.length} crops were added to the database!`);
-        
+                
         // Exit the process
         process.exit();
     } catch (error) {
