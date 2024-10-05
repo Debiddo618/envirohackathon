@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
-import styles from "./PrecipitationGraph.module.css";
+import styles from "./OneYearRainGraph.module.css";
 import {
   Chart as ChartJS,
   LineElement,
@@ -23,15 +23,34 @@ ChartJS.register(
   Legend
 );
 
-const PrecipitationGraph = () => {
-  const [days, setDays] = useState(3);
+const OneYearRainGraph = () => {
   const [rain, setRain] = useState([]);
   const [months, setMonths] = useState([]);
 
+    //format the current date to YYYY-MM-DD format
+  function getCurrentDateFormatted() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  }
+ 
+  // find the date after a year
+  function nextYear(date, days) {
+    const resultDate = new Date(date);
+    resultDate.setDate(resultDate.getDate() + days);
+    const year = resultDate.getFullYear();
+    const month = String(resultDate.getMonth() + 1).padStart(2, "0");
+    const day = String(resultDate.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  }
+  const nextYearDate = nextYear(new Date(), 365);
+
+
   useEffect(() => {
     const fetchData = async () => {
-      const url =
-        "https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&start_date=2023-01-01&end_date=2023-12-31&daily=precipitation_sum,temperature_2m_max&precipitation_unit=inch&temperature_unit=fahrenheit&timezone=auto";
+      const url = `https://climate-api.open-meteo.com/v1/climate?latitude=52.52&longitude=13.41&start_date=${getCurrentDateFormatted()}&end_date=${nextYearDate}&models=MRI_AGCM3_2_S&daily=precipitation_sum`;
       const response = await fetch(url);
       const data = await response.json();
 
@@ -51,16 +70,22 @@ const PrecipitationGraph = () => {
 
       setRain(monthlyRain);
       setMonths([
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
       ]);
     };
     fetchData();
-  }, [days]);
-
-  const handleRangeChange = (event) => {
-    setDays(event.target.value);
-  };
+  });
 
   const data = {
     labels: months,
@@ -114,4 +139,4 @@ const PrecipitationGraph = () => {
   );
 };
 
-export default PrecipitationGraph;
+export default OneYearRainGraph;

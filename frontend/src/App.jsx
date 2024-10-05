@@ -8,17 +8,23 @@ import Map from "./components/Map/Map";
 import Navbar from "./components/Navbar/Navbar";
 import Dashboard from "./components/Dashboard/Dashboard";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import { faHourglass1 } from "@fortawesome/free-solid-svg-icons";
 import Landingpage from "./components/Landingpage/Landingpage";
 import SignUpForm from "./components/SignUpForm/SignUpForm";
 import SignInForm from "./components/SignInForm/SignInForm";
+import { useState, useEffect } from "react";
 import CropChart from "./components/CropChart/CropChart";
+import ForecastRainGraph from "./components/ForecastRainGraph/ForecastRainGraph";
+import RainPage from "./components/RainPage/RainPage";
+import Reccommendation from "./components/Reccomendation/Reccommendation";
 
-import { useState } from "react";
+/*--------------------services--------------- */
 import * as authService from "./services/authService";
+import * as cropService from "./services/cropService";
 
 export default function App() {
   const [user, setUser] = useState(authService.getUser());
+  const [crops, setCrops] = useState([]);
+
   const navigate = useNavigate();
 
   const handleSignout = () => {
@@ -27,16 +33,22 @@ export default function App() {
     navigate("/users/signin");
   };
 
+  useEffect(() => {
+    const fetchAllCrops = async () => {
+      const cropsData = await cropService.index();
+      setCrops(cropsData);
+    };
+    fetchAllCrops();
+  }, []);
+
   return (
     <div className="container-fluid">
       <Navbar user={user} handleSignout={handleSignout} />
-      {/* <Landingpage /> */}
       <Routes>
-        <Route path="/cropchart" element={<CropChart />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/sunlight" element={<Sunlight />} />
-        <Route path="/weather" element={<WeatherChart />} />
         <Route path="/" element={<Landingpage />} />
+        <Route path="/cropchart" element={<CropChart />} />
+        <Route path="rain" element={<RainPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route
           path="/users/signup"
           element={<SignUpForm setUser={setUser} />}
@@ -45,6 +57,7 @@ export default function App() {
           path="/users/signin"
           element={<SignInForm setUser={setUser} />}
         />
+        <Route path="/rec" element={<Reccommendation />} />
       </Routes>
     </div>
   );
