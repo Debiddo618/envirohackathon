@@ -1,0 +1,47 @@
+
+.gantt {
+  margin-top: 0;
+  padding: 5rem 20rem 5rem 20rem;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  overflow: hidden;
+  padding-bottom: 5px;
+}
+
+.gantt div {
+  padding: .5rem;
+  border-radius: 3rem;
+  margin: 1rem;
+  /* background-color: red; */
+  width: 100%;
+  position: relative;
+}
+
+.gantt div::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  transform: translateX(-50%);
+  border: 1px solid black;
+  height: 200vh;
+  z-index: -1;
+  opacity: 0.2;
+}
+
+.gantt div::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 100%;
+  transform: translateX(-50%);
+  border: 1px solid black;
+  height: 200vh;
+  z-index: -1;
+  opacity: 0.2;
+}
+.gantt .head {
+  text-align: center;
+  font-weight: 700;
+}
+
