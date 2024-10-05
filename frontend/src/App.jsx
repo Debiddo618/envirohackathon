@@ -16,7 +16,6 @@ import CropChart from "./components/CropChart/CropChart";
 import ForecastRainGraph from "./components/ForecastRainGraph/ForecastRainGraph";
 import RainPage from "./components/RainPage/RainPage";
 
-
 /*--------------------services--------------- */
 import * as authService from "./services/authService";
 import * as cropService from "./services/cropService";
@@ -44,14 +43,11 @@ export default function App() {
   return (
     <div className="container-fluid">
       <Navbar user={user} handleSignout={handleSignout} />
-      {/* <Landingpage /> */}
       <Routes>
-        <Route path="/cropchart" element={<CropChart />} />
-        <Route path="rain" element={<RainPage/>}/>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/sunlight" element={<Sunlight />} />
-        <Route path="/weather" element={<WeatherChart />} />
         <Route path="/" element={<Landingpage />} />
+        <Route path="/cropchart" element={<CropChart />} />
+        <Route path="rain" element={<RainPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route
           path="/users/signup"
           element={<SignUpForm setUser={setUser} />}

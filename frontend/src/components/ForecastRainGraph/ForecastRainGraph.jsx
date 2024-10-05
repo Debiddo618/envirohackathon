@@ -82,6 +82,15 @@ const ForecastRainGraph = () => {
 
   return (
     <>
+      <div className={styles.chartContainer}>
+        <Line
+          className={styles.chart}
+          data={data}
+          options={options}
+          width={600}
+          height={400}
+        />
+      </div>
       <div>
         <label className={styles.label} htmlFor="dayRange">
           Days: {days}
@@ -94,15 +103,6 @@ const ForecastRainGraph = () => {
           value={days}
           id="dayRange"
           onChange={handleRangeChange}
-        />
-      </div>
-      <div className={styles.chartContainer}>
-        <Line
-          className={styles.chart}
-          data={data}
-          options={options}
-          width={600}
-          height={400}
         />
       </div>
     </>

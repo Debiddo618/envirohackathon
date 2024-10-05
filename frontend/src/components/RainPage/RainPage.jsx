@@ -1,10 +1,12 @@
-import PrecipitationGraph from "../HistoricGraph/HistoricGraph";
 import ForecastRainGraph from "../ForecastRainGraph/ForecastRainGraph";
+import OneYearRainGraph from "../OneYearRainGraph/OneYearRainGraph";
+import HistoricGraph from "../HistoricGraph/HistoricGraph";
 const RainPage = () => {
   return (
     <>
-      <ForecastRainGraph/>
-      <PrecipitationGraph />
+      <ForecastRainGraph />
+      <HistoricGraph />
+      <OneYearRainGraph />
     </>
   );
 };
