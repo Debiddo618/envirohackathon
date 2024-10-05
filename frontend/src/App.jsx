@@ -12,12 +12,14 @@ import { faHourglass1 } from "@fortawesome/free-solid-svg-icons";
 import Landingpage from "./components/Landingpage/Landingpage";
 import SignUpForm from "./components/SignUpForm/SignUpForm";
 import SignInForm from "./components/SignInForm/SignInForm";
+import CropChart from "./components/CropChart/CropChart";
 
 import { useState } from "react";
 import * as authService from "./services/authService";
 
 export default function App() {
   const [user, setUser] = useState(authService.getUser());
+  const navigate = useNavigate();
 
   const handleSignout = () => {
     authService.signout();
@@ -30,6 +32,7 @@ export default function App() {
       <Navbar user={user} handleSignout={handleSignout} />
       {/* <Landingpage /> */}
       <Routes>
+        <Route path="/cropchart" element={<CropChart />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/sunlight" element={<Sunlight />} />
         <Route path="/weather" element={<WeatherChart />} />
