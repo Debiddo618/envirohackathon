@@ -7,14 +7,10 @@ const cropSchema = new Schema({
       type: String,
       required: true,
     },
-    rain_min: {
-      type: Number, 
-      required: true, 
-    },
-    rain_max: {
+    rain_average: {
       type: Number,
-      required: true, 
-    },
+      required: true,
+    }
   }, 
   { timestamps: true });
   

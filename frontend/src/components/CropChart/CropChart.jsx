@@ -51,7 +51,6 @@ const CropChart = () => {
         label: "Soybeans",
         data:
           view === "year" ? [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0] : [0, 0, 0], 
-        backgroundColor: "rgba(153, 102, 255, 0.6)",
       },
     ],
   };
