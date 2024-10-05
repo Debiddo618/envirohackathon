@@ -15,7 +15,7 @@ import { useState, useEffect } from "react";
 import CropChart from "./components/CropChart/CropChart";
 import ForecastRainGraph from "./components/ForecastRainGraph/ForecastRainGraph";
 import RainPage from "./components/RainPage/RainPage";
-import Reccommendation from "./components/Reccomendation/Recommendation";
+import Recommendation from "./components/Recommendation/Recommendation";
 
 /*--------------------services--------------- */
 import * as authService from "./services/authService";
@@ -47,7 +47,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Landingpage />} />
         <Route path="/cropchart" element={<CropChart />} />
-        <Route path="rain" element={<RainPage />} />
+        <Route path="/rain" element={<RainPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route
           path="/users/signup"
@@ -57,7 +57,7 @@ export default function App() {
           path="/users/signin"
           element={<SignInForm setUser={setUser} />}
         />
-        <Route path="/rec" element={<Reccommendation />} />
+        <Route path="/rec" element={<Recommendation />} />
       </Routes>
     </div>
   );

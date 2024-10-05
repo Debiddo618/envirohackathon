@@ -119,7 +119,7 @@ const OneYearRainGraph = () => {
     plugins: {
       title: {
         display: true,
-        text: "Previous Annual Rain",
+        text: "Forecast Annual Rain",
       },
     },
   };

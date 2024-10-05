@@ -4,7 +4,7 @@ import * as cropService from "../../services/cropService";
 
 const Recommendation = () => {
   const [averageDailyRain, setAverageDailyRain] = useState([]);
-  const [months] = useState([
+  const [months, setMonths] = useState([
     "Jan",
     "Feb",
     "Mar",
@@ -19,6 +19,7 @@ const Recommendation = () => {
     "Dec",
   ]);
   const [crops, setCrops] = useState([]);
+  const [days, setDays] = useState(365);
 
   useEffect(() => {
     const fetchAllCrops = async () => {
@@ -50,12 +51,11 @@ const Recommendation = () => {
   const getRandomHexColor = () => {
     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
     return `#${randomColor.padStart(6, "0")}`;
-  }
+  };
 
   const randomColor = Math.floor(Math.random() * 16777215).toString(16);
 
-
-  const nextYearDate = nextYear(new Date(), 365);
+  const nextYearDate = nextYear(new Date(), days);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -71,6 +71,27 @@ const Recommendation = () => {
           const month = new Date(date).getMonth();
           monthlyRain[month] += data.daily.precipitation_sum[index];
         });
+        if (days === 90) {
+          setMonths(months.slice(0, 3));
+        } else {
+          if (days === 365) {
+            setMonths([
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sep",
+              "Oct",
+              "Nov",
+              "Dec",
+            ]);
+          }
+        }
+
         setAverageDailyRain(monthlyRain.map((num) => num / 30));
       } catch (error) {
         console.error("Error fetching data: ", error);
@@ -122,35 +143,56 @@ const Recommendation = () => {
   });
 
   return (
-    <div className={styles.gantt}>
-      {months.map((month, index) => (
-        <div key={index} className={styles.head}>
-          {month}
-        </div>
-      ))}
+    <div className={styles.containerFluid}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          marginBottom: "10px",
+        }}
+      >
+        <button onClick={() => setDays(90)}>3 Months</button>
+        <button onClick={() => setDays(365)}>1 Year</button>
+      </div>
 
-      {crops.length > 0 ? (
-        crops.map((crop, index) => (
-          <div
-            key={crop.name}
-            style={{
-              marginBottom: "3px",
-              background: getRandomHexColor(),
-              gridRow: index + 2,
-              gridColumn: crop.span
-                ? `${crop.span[0] + 1} / span ${
-                    crop.span[1] - crop.span[0] + 1
-                  }`
-                : "1 / span 1",
-              textAlign: "center",
-            }}
-          >
-            {crop.name}
-          </div>
-        ))
-      ) : (
-        <h1>Loading</h1>
-      )}
+      <div className={styles.ganttContainer}>
+        <div className={styles.gantt}>
+          {months.map((month, index) => (
+            <div key={index} className={styles.head}>
+              {month}
+            </div>
+          ))}
+
+          {crops.length > 0 ? (
+            crops.map((crop, index) => {
+              const span = longestIndexesBetween(
+                monthlyDailyRainFall,
+                crop.rain_average
+              );
+              const gridColumn = span
+                ? `${span[0] + 1} / span ${span[1] - span[0] + 1}`
+                : "1 / span 1";
+
+              return (
+                <div
+                  key={crop.name}
+                  style={{
+                    marginBottom: "3px",
+                    background: getRandomHexColor(),
+                    gridRow: index + 2,
+                    gridColumn: gridColumn,
+                    textAlign: "center",
+                  }}
+                >
+                  {crop.name}
+                </div>
+              );
+            })
+          ) : (
+            <h1>Loading</h1>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
