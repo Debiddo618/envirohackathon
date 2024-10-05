@@ -8,22 +8,34 @@ import Map from "./components/Map/Map";
 import Navbar from "./components/Navbar/Navbar";
 import Dashboard from "./components/Dashboard/Dashboard";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import { faHourglass1 } from "@fortawesome/free-solid-svg-icons";
 import Landingpage from "./components/Landingpage/Landingpage";
 import SignUpForm from "./components/SignUpForm/SignUpForm";
 import SignInForm from "./components/SignInForm/SignInForm";
+import { useState, useEffect } from "react";
 
-import { useState } from "react";
+/*--------------------services--------------- */
 import * as authService from "./services/authService";
+import * as cropService from "./services/cropService";
 
 export default function App() {
   const [user, setUser] = useState(authService.getUser());
+  const [crops, setCrops] = useState([]);
+
+  const navigate = useNavigate();
 
   const handleSignout = () => {
     authService.signout();
     setUser(null);
     navigate("/users/signin");
   };
+
+  useEffect(() => {
+    const fetchAllCrops = async () => {
+      const cropsData = await cropService.index();
+      setCrops(cropsData);
+    };
+    fetchAllCrops();
+  }, []);
 
   return (
     <div className="container-fluid">
