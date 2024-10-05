@@ -15,6 +15,7 @@ import { useState, useEffect } from "react";
 import CropChart from "./components/CropChart/CropChart";
 import ForecastRainGraph from "./components/ForecastRainGraph/ForecastRainGraph";
 import RainPage from "./components/RainPage/RainPage";
+import Reccommendation from "./components/Reccomendation/Reccommendation";
 
 /*--------------------services--------------- */
 import * as authService from "./services/authService";
@@ -56,6 +57,7 @@ export default function App() {
           path="/users/signin"
           element={<SignInForm setUser={setUser} />}
         />
+        <Route path="/rec" element={<Reccommendation />} />
       </Routes>
     </div>
   );
