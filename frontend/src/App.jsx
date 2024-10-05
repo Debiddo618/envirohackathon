@@ -15,7 +15,7 @@ import { useState, useEffect } from "react";
 import CropChart from "./components/CropChart/CropChart";
 import ForecastRainGraph from "./components/ForecastRainGraph/ForecastRainGraph";
 import RainPage from "./components/RainPage/RainPage";
-import Reccommendation from "./components/Reccomendation/Reccommendation";
+import Reccommendation from "./components/Reccomendation/Recommendation";
 
 /*--------------------services--------------- */
 import * as authService from "./services/authService";

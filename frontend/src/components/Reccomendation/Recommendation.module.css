@@ -1,0 +1,13 @@
+.gantt {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.gantt div {
+  padding: 10px;
+}
+
+.gantt .head {
+  text-align: center;
+  font-weight: 700;
+}
