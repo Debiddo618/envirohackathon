@@ -16,6 +16,7 @@ import CropChart from "./components/CropChart/CropChart";
 import ForecastRainGraph from "./components/ForecastRainGraph/ForecastRainGraph";
 import RainPage from "./components/RainPage/RainPage";
 import Reccommendation from "./components/Reccomendation/Recommendation";
+import Crops from "./components/Crops/Crops";
 
 /*--------------------services--------------- */
 import * as authService from "./services/authService";
@@ -24,6 +25,7 @@ import * as cropService from "./services/cropService";
 export default function App() {
   const [user, setUser] = useState(authService.getUser());
   const [crops, setCrops] = useState([]);
+
 
   const navigate = useNavigate();
 
@@ -40,6 +42,18 @@ export default function App() {
     };
     fetchAllCrops();
   }, []);
+
+    // Use the create service to make a pet from form data
+    const handleAddCrop = async (formData) => {
+      try {
+        const newCrop = await cropService.create(formData)
+        // add the newPet to the petList array
+        setCrops([newCrop, ...crops]);
+        setIsFormOpen(false);
+      } catch (error) {
+        console.log(error)
+      }
+    }
 
   return (
     <div className="container-fluid">
@@ -58,6 +72,7 @@ export default function App() {
           element={<SignInForm setUser={setUser} />}
         />
         <Route path="/rec" element={<Reccommendation />} />
+        <Route path="/crops" element={<Crops handleAddCrop={handleAddCrop} crops={crops}/>} />
       </Routes>
     </div>
   );
