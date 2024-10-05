@@ -1,7 +1,8 @@
 import styles from "./Crops.module.css";
 import { useState } from "react";
+
 const Crops = (props) => {
-  // Empty fields to use if a pet has not been selected
+  // Empty fields to use if a crop has not been selected
   const initialState = {
     name: "",
     rain_average: 0,
@@ -10,6 +11,7 @@ const Crops = (props) => {
     harvest_date: null,
     duration: 0,
   };
+
   const [formData, setFormData] = useState(
     props.selected ? props.selected : initialState
   );
@@ -22,12 +24,13 @@ const Crops = (props) => {
   const handleSubmitForm = (event) => {
     event.preventDefault();
     if (props.selected) {
-      props.handleUpdatePet(formData, props.selected._id);
+      props.handleUpdateCrop(formData, props.selected._id);
     } else {
       props.handleAddCrop(formData);
     }
     setFormData(initialState);
   };
+
   return (
     <>
       <div className={styles.container}>
@@ -44,36 +47,42 @@ const Crops = (props) => {
             </tr>
           </thead>
           <tbody>
-            {props.crops.map((crop) => (
-              <tr key={crop._id}>
-                <td>{crop.name}</td>
-                <td>
-                  {crop.start_date
-                    ? new Date(crop.start_date).toLocaleDateString()
-                    : "-"}
-                </td>
-                <td>
-                  {crop.harvest_date
-                    ? new Date(crop.harvest_date).toLocaleDateString()
-                    : "-"}
-                </td>
-                <td>{crop.duration} days</td>
-                <td>
-                  <ion-icon name="calendar-outline"></ion-icon>
-
-                  {crop.start_date && crop.harvest_date
-                    ? `${new Date(
-                        crop.start_date
-                      ).toLocaleDateString()} - ${new Date(
-                        crop.harvest_date
-                      ).toLocaleDateString()}`
-                    : "No Dates Available"}
-                </td>
+            {props.crops && props.crops.length > 0 ? (
+              props.crops.map((crop) => (
+                <tr key={crop._id}>
+                  <td>{crop.name}</td>
+                  <td>
+                    {crop.start_date
+                      ? new Date(crop.start_date).toLocaleDateString()
+                      : "-"}
+                  </td>
+                  <td>
+                    {crop.harvest_date
+                      ? new Date(crop.harvest_date).toLocaleDateString()
+                      : "-"}
+                  </td>
+                  <td>{crop.duration} days</td>
+                  <td>
+                    <ion-icon name="calendar-outline"></ion-icon>
+                    {crop.start_date && crop.harvest_date
+                      ? `${new Date(
+                          crop.start_date
+                        ).toLocaleDateString()} - ${new Date(
+                          crop.harvest_date
+                        ).toLocaleDateString()}`
+                      : "No Dates Available"}
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="5">No crops available</td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </div>
+
       <button className={styles.button}>
         <ion-icon name="add-outline"></ion-icon>Add Crop
       </button>
@@ -135,6 +144,7 @@ const Crops = (props) => {
           </button>
         </form>
       </div>
+
       <div className={styles.buttons}>
         <button>Back</button>
         <button>Next</button>
