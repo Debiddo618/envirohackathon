@@ -69,8 +69,8 @@ const PrecipitationGraph = () => {
         label: "Rain",
         data: rain,
         fill: false,
-        backgroundColor: "rgba(75,192,192,0.4)",
-        borderColor: "rgba(75,192,192,1)",
+        backgroundColor: "rgba(0, 90, 246, 0.4)",
+        borderColor: "rgba(0, 90, 246, 1)",
       },
     ],
   };

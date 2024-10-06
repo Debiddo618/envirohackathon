@@ -48,12 +48,13 @@ const Recommendation = () => {
     return `${year}-${month}-${day}`;
   }
 
+  // Generate a random green shade
   const getRandomHexColor = () => {
-    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-    return `#${randomColor.padStart(6, "0")}`;
+    const greenValue = Math.floor(Math.random() * 256);
+    const redValue = Math.floor(Math.random() * 128);
+    const blueValue = Math.floor(Math.random() * 128);
+    return `#${redValue.toString(16).padStart(2, "0")}${greenValue.toString(16).padStart(2, "0")}${blueValue.toString(16).padStart(2, "0")}`;
   };
-
-  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
 
   const nextYearDate = nextYear(new Date(), days);
 
