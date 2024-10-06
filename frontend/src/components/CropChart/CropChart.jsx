@@ -44,20 +44,19 @@ const CropChart = () => {
       {
         label: "Corn",
         data:
-          view === "year" ? [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0] : [0, 0, 0], 
+          view === "year" ? [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0] : [0, 0, 0],
         backgroundColor: "rgba(75, 192, 192, 0.6)",
       },
       {
         label: "Soybeans",
         data:
-          view === "year" ? [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0] : [0, 0, 0], 
-        backgroundColor: "rgba(153, 102, 255, 0.6)",
+          view === "year" ? [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0] : [0, 0, 0],
       },
     ],
   };
 
   const options = {
-    indexAxis: "x", 
+    indexAxis: "x",
     scales: {
       x: {
         position: "top",

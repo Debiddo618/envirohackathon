@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
-import styles from "./ForecastRainGraph.module.css";
+import styles from "./HistoricGraph.module.css";
 import {
   Chart as ChartJS,
   LineElement,
@@ -23,18 +23,37 @@ ChartJS.register(
   Legend
 );
 
-const ForecastRainGraph = () => {
+const PrecipitationGraph = () => {
   const [days, setDays] = useState(3);
   const [rain, setRain] = useState([]);
-  const [date, setDate] = useState([]);
+  const [months, setMonths] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&daily=precipitation_sum,rain_sum&forecast_days=${days}`;
+      const url =
+        "https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&start_date=2023-01-01&end_date=2023-12-31&daily=precipitation_sum,temperature_2m_max&precipitation_unit=inch&temperature_unit=fahrenheit&timezone=auto";
       const response = await fetch(url);
       const data = await response.json();
-      setRain(data.daily.precipitation_sum);
-      setDate(data.daily.time);
+
+      // Aggregate precipitation data by month
+      const monthlyRain = new Array(12).fill(0);
+      const formattedDates = data.daily.time.map((date) => {
+        const dateObj = new Date(date);
+        const month = dateObj.toLocaleString("default", { month: "short" });
+        const day = dateObj.getDate();
+        return `${month} ${day}`;
+      });
+
+      data.daily.time.forEach((date, index) => {
+        const month = new Date(date).getMonth();
+        monthlyRain[month] += data.daily.precipitation_sum[index];
+      });
+
+      setRain(monthlyRain);
+      setMonths([
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ]);
     };
     fetchData();
   }, [days]);
@@ -44,7 +63,7 @@ const ForecastRainGraph = () => {
   };
 
   const data = {
-    labels: date,
+    labels: months,
     datasets: [
       {
         label: "Rain",
@@ -61,7 +80,7 @@ const ForecastRainGraph = () => {
       x: {
         title: {
           display: true,
-          text: "Date",
+          text: "Month",
         },
       },
       y: {
@@ -75,7 +94,7 @@ const ForecastRainGraph = () => {
     plugins: {
       title: {
         display: true,
-        text: "Rain Forecast", // Chart title
+        text: "Previous Annual Rain",
       },
     },
   };
@@ -91,22 +110,8 @@ const ForecastRainGraph = () => {
           height={400}
         />
       </div>
-      <div>
-        <label className={styles.label} htmlFor="dayRange">
-          Days: {days}
-        </label>
-        <input
-          type="range"
-          className={styles.days}
-          min="1"
-          max="16"
-          value={days}
-          id="dayRange"
-          onChange={handleRangeChange}
-        />
-      </div>
     </>
   );
 };
 
-export default ForecastRainGraph;
+export default PrecipitationGraph;

@@ -1,0 +1,118 @@
+[
+  {
+    "name": "Rice",
+    "rain_average": 2.475
+  },
+  {
+    "name": "Sugarcane",
+    "rain_average": 2.19
+  },
+  {
+    "name": "Cotton",
+    "rain_average": 1.85
+  },
+  {
+    "name": "Tobacco",
+    "rain_average": 2.33
+  },
+  {
+    "name": "Tea",
+    "rain_average": 2.565
+  },
+  {
+    "name": "Coffee",
+    "rain_average": 2.23
+  },
+  {
+    "name": "Banana",
+    "rain_average": 2.09
+  },
+  {
+    "name": "Cocoa",
+    "rain_average": 2.95
+  },
+  {
+    "name": "Maize",
+    "rain_average": 2.025
+  },
+  {
+    "name": "Soybean",
+    "rain_average": 2.13
+  },
+  {
+    "name": "Rice paddy",
+    "rain_average": 2.87
+  },
+  {
+    "name": "Wheat",
+    "rain_average": 1.93
+  },
+  {
+    "name": "Avocado",
+    "rain_average": 2.325
+  },
+  {
+    "name": "Potato",
+    "rain_average": 2.045
+  },
+  {
+    "name": "Pineapple",
+    "rain_average": 2.46
+  },
+  {
+    "name": "Alfalfa",
+    "rain_average": 2.20
+  },
+  {
+    "name": "Barley",
+    "rain_average": 1.835
+  },
+  {
+    "name": "Bean",
+    "rain_average": 1.87
+  },
+  {
+    "name": "Cabbage",
+    "rain_average": 1.99
+  },
+  {
+    "name": "Citrus",
+    "rain_average": 2.16
+  },
+  {
+    "name": "Melon",
+    "rain_average": 1.925
+  },
+  {
+    "name": "Onion",
+    "rain_average": 1.87
+  },
+  {
+    "name": "Peanut",
+    "rain_average": 2.00
+  },
+  {
+    "name": "Pea",
+    "rain_average": 1.83
+  },
+  {
+    "name": "Pepper",
+    "rain_average": 2.06
+  },
+  {
+    "name": "Sorghum",
+    "rain_average": 1.87
+  },
+  {
+    "name": "Sugarbeet",
+    "rain_average": 1.99
+  },
+  {
+    "name": "Sunflower",
+    "rain_average": 1.975
+  },
+  {
+    "name": "Tomato",
+    "rain_average": 1.91
+  }
+]
