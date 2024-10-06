@@ -149,7 +149,9 @@ const Crops = (props) => {
           </Link>
         </button>
         <button>
-          Next
+        <Link to="/" className={styles.link2}>
+            Next
+          </Link>
         </button>
       </div>
     </>
