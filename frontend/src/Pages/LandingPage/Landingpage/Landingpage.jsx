@@ -39,7 +39,7 @@ export default function LandingPage() {
       };
 
       // Navigate to the dashboard and pass weatherData via state
-      navigate("/dashboard", { state: weatherData });
+      navigate("/rain", { state: weatherData });
 
     } catch (err) {
       setError(err.message);

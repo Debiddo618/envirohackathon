@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import styles from "./Recommendation.module.css";
 import * as cropService from "../../services/cropService";
 
-const Recommendation = () => {
+const Recommendation = ({lat, lon}) => {
+  console.log(lat)
+  console.log(lon)
+
   const [averageDailyRain, setAverageDailyRain] = useState([]);
   const [months, setMonths] = useState([
     "Jan",

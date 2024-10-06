@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 .text1 {
   color: #343240;
   text-align: center;
-  font-family: Canela;
+  font-family: Inter;
   font-size: 35px;
   font-style: normal;
   font-weight: 500;
@@ -12,7 +14,7 @@
 .text2 {
   color: #343240;
   text-align: center;
-  font-family: Canela;
+  font-family: Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -26,32 +28,40 @@
   letter-spacing: 0.18px;
   padding: 20px;
   background-color: #f9f9f9;
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .tableContainer {
+  margin-left: 100px;
+  margin-right: 99px;
   margin-top: 30px;
+  margin-bottom: 30px;
   width: 100%;
+  border-radius: 20px;
 }
 
 .cropTable {
   width: 100%;
   border-collapse: collapse;
+  border-radius: 30%;
+  padding-top: 30px;
 }
 
 .tableHeader {
-  background-color: #4caf50;
-  color: white;
+  background-color: hsla(0, 0%, 100%, 1);
+  color: hsla(0, 0%, 13%, 1);
   padding: 10px;
   text-align: left;
+  font-weight: 100;
 }
 
 .cropTable th,
 .cropTable td {
-  border: 1px solid #ddd;
+  border: none;
   padding: 8px;
   text-align: left;
+
 }
 
 .cropTable tr:nth-child(even) {
@@ -78,6 +88,7 @@
 }
 
 .formContainer {
+  border-radius: 20px;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -108,7 +119,7 @@
   color: white;
   padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 30px;
   cursor: pointer;
   font-size: 16px;
 }
@@ -119,14 +130,14 @@
 
 .navigationButtons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 20px;
 }
 
 .navButton {
   background-color: transparent;
   border: 1px solid black;
-  color: white;
+  color: rgb(165, 124, 56);
   padding: 5px 10px;
   font-size: 16px;
   cursor: pointer;
@@ -154,7 +165,7 @@
   font-weight: 400;
   line-height: 150%;
   letter-spacing: 0.18px;
-  background-color: #ff9887;
+  background-color: #010000;
 }
 
 .buttons button:nth-child(1) {

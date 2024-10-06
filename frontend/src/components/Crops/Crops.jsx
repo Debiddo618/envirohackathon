@@ -3,6 +3,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Crops = (props) => {
+  const [showNotification, setShowNotification] = useState(false);
+
+  const handleShowNotification = () => setShowNotification(true);
+  const handleCloseNotification = () => setShowNotification(false);
+  
   const initialState = {
     name: "",
     rain_average: 0,
@@ -149,7 +154,7 @@ const Crops = (props) => {
           </Link>
         </button>
         <button>
-        <Link to="/dashboard" className={styles.link2}>
+          <Link to="/dashboard" className={styles.link2}>
             Next
           </Link>
         </button>
