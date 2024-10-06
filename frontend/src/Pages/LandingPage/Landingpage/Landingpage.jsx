@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import "./LandingPage.css";
 import Header from "../../../components/Header/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";  // Import FontAwesome search icon
+import { faSearch } from "@fortawesome/free-solid-svg-icons"; // Import FontAwesome search icon
 
-const api_key = "08b8bcb043f87d6a013fd6efe6738296"; 
+const api_key = "08b8bcb043f87d6a013fd6efe6738296";
 
-export default function LandingPage() {
+export default function LandingPage(props) {
   const [city, setCity] = useState("");
   const [error, setError] = useState(null);
 
@@ -21,7 +21,7 @@ export default function LandingPage() {
     }
 
     try {
-      setError(null); 
+      setError(null);
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${api_key}`
       );
@@ -31,11 +31,14 @@ export default function LandingPage() {
       }
 
       const data = await response.json();
+      props.setLong(data.coord.lon);
+      props.setLat(data.coord.lat)
+      
       const weatherData = {
         city: city,
         temperature: data.main.temp,
         lon: data.coord.lon,
-        lat: data.coord.lat
+        lat: data.coord.lat,
       };
 
       // Navigate to the dashboard and pass weatherData via state

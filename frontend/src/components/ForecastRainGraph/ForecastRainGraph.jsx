@@ -23,21 +23,24 @@ ChartJS.register(
   Legend
 );
 
-const ForecastRainGraph = () => {
+const ForecastRainGraph = ({ lat, lon }) => {
   const [days, setDays] = useState(3);
   const [rain, setRain] = useState([]);
   const [date, setDate] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&daily=precipitation_sum,rain_sum&forecast_days=${days}`;
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=precipitation_sum,rain_sum&forecast_days=${days}`;
       const response = await fetch(url);
       const data = await response.json();
       setRain(data.daily.precipitation_sum);
       setDate(data.daily.time);
     };
-    fetchData();
-  }, [days]);
+    // Only fetch data if lat and lon are defined
+    if (lat !== undefined && lon !== undefined) {
+      fetchData();
+    }
+  }, [days, lat, lon]);
 
   const handleRangeChange = (event) => {
     setDays(event.target.value);
