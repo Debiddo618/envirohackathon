@@ -35,9 +35,6 @@ const Navbar = (props) => {
   const monthName = months[today.getMonth()];
   const formattedDate = `${dayName} ${day} ${monthName}`;
 
-  const onLandingPage = location.pathname === "/";
-  if (onLandingPage) return null;
-
   const [city, setCity] = useState("");
 
   const handleChange = (e) => {
