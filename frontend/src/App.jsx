@@ -9,13 +9,14 @@ import Navbar from "./components/Navbar/Navbar";
 import Dashboard from "./components/Dashboard/Dashboard";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { faHourglass1 } from "@fortawesome/free-solid-svg-icons";
-import Landingpage from "./components/Landingpage/Landingpage";
 import SignUpForm from "./components/SignUpForm/SignUpForm";
 import SignInForm from "./components/SignInForm/SignInForm";
 import CropChart from "./components/CropChart/CropChart";
 
+
 import { useState } from "react";
 import * as authService from "./services/authService";
+import LandingPage from "./Pages/LandingPage/Landingpage/Landingpage";
 
 export default function App() {
   const [user, setUser] = useState(authService.getUser());
@@ -36,7 +37,7 @@ export default function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/sunlight" element={<Sunlight />} />
         <Route path="/weather" element={<WeatherChart />} />
-        <Route path="/" element={<Landingpage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route
           path="/users/signup"
           element={<SignUpForm setUser={setUser} />}
