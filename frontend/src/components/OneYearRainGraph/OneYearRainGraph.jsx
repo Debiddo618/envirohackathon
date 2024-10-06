@@ -11,7 +11,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-const OneYearRainGraph = ({ lat=0, lon=0 }) => {
+const OneYearRainGraph = ({ lat = 0, lon = 0 }) => {
   const [rain, setRain] = useState([]);
   const [months, setMonths] = useState([]);
 
@@ -49,7 +49,7 @@ const OneYearRainGraph = ({ lat=0, lon=0 }) => {
         const monthlyRain = new Array(12).fill(0);
         data.daily.time.forEach((date, index) => {
           const month = new Date(date).getMonth();
-          monthlyRain[month] += data.daily.precipitation_sum[index];
+          monthlyRain[month] += data.daily.precipitation_sum[index] / 30;
         });
 
         setRain(monthlyRain);
@@ -112,7 +112,7 @@ const OneYearRainGraph = ({ lat=0, lon=0 }) => {
     plugins: {
       title: {
         display: true,
-        text: "Forecast Annual Rain",
+        text: "Annual Rain Forecast",
       },
     },
   };

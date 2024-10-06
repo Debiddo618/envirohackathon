@@ -26,8 +26,7 @@ export const Coords = createContext(null);
 export default function App() {
   const [user, setUser] = useState(authService.getUser());
   const [crops, setCrops] = useState([]);
-  const [long, setLong] = useState(-102.003998);
-  const [lat, setLat] = useState(22.119671);
+  const [city, setCity] = useState("miami");
 
   // const navigate = useNavigate();
 
@@ -49,14 +48,12 @@ export default function App() {
     }
   };
 
-  const city = "Miami";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${
-    import.meta.env.VITE_OPEN_MAP
-  }`;
   const [coord, setCoord] = useState([]);
-  const [location, setLocation] = useState(null);
 
   useEffect(() => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${
+      import.meta.env.VITE_OPEN_MAP
+    }`;
     const fetchLocation = async () => {
       fetch(url)
         .then((response) => response.json())
@@ -65,12 +62,21 @@ export default function App() {
         });
     };
     fetchLocation();
-  }, []);
+  }, [city]);
+
+  const handleSearch = (city) => {
+    console.log({ city });
+    setCity(city);
+  };
 
   return (
     <Coords.Provider value={coord}>
       <div className="container-fluid">
-        <Navbar user={user} handleSignout={handleSignout} />
+        <Navbar
+          user={user}
+          handleSignout={handleSignout}
+          handleSearch={handleSearch}
+        />
         <Routes>
           <Route path="/nothing" element={<h1>Test</h1>} />
           <Route path="/" element={<LandingPage />} />
