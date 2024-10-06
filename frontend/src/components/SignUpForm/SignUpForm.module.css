@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 16px;
 }
 .container {
   display: flex;
@@ -24,7 +24,7 @@
 }
 
 .text2 {
-  color: var(--Terracast-OffBlackv2, #343240);
+  color: #343240;
   text-align: center;
   font-family: Canela;
   font-size: 20px;
@@ -35,7 +35,7 @@
 }
 
 .container label {
-  color: var(--Terracast-MidGray, #5f5e66);
+  color:#5f5e66;
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
@@ -71,6 +71,9 @@
   display: flex;
   justify-content: space-evenly;
   margin-top: 42px;
+  position: fixed;
+  bottom: 20%;
+  left: 0;
 }
 
 .buttons button {
@@ -116,3 +119,5 @@
 .link1:hover{
     color: white;
 }
+
+
