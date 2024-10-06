@@ -66,16 +66,16 @@
     max-width: 300px;
 }
 
-form {
+.form {
     display: flex;
     flex-direction: column;
 }
 
-form label {
+.form label {
     margin-top: 10px;
 }
 
-form input {
+.form input {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
