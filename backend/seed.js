@@ -11,7 +11,7 @@ const data = require('./data.json');
         await Crop.deleteMany({});
         
         // Insert new crops from the data.json file
-        const crops = await Crop.create(data);
+        // const crops = await Crop.create(data);
                 
         // Exit the process
         process.exit();
