@@ -49,40 +49,26 @@ export default function App() {
     }
   };
 
-  // useEffect(() => {
-  //   const fetchAllCrops = async () => {
-  //     const cropsData = await cropService.index();
-  //     setCrops(cropsData);
-  //   };
-  //   fetchAllCrops();
-  // }, []);
-
-  ////////////////////////////////////
-  const api_key = "08b8bcb043f87d6a013fd6efe6738296";
   const city = "Miami";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${api_key}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${
+    import.meta.env.VITE_OPEN_MAP
+  }`;
   const [coord, setCoord] = useState([]);
   const [location, setLocation] = useState(null);
-  console.log(coord);
 
   useEffect(() => {
     const fetchLocation = async () => {
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          // console.log(data.coord)
           setCoord([data.coord.lon, data.coord.lat]);
         });
     };
     fetchLocation();
   }, []);
-  // console.log(lon)
-  // console.log(lat)
-
-  ///////////////////////////////////////
 
   return (
-    <Coords.Provider value={coord} >
+    <Coords.Provider value={coord}>
       <div className="container-fluid">
         <Navbar user={user} handleSignout={handleSignout} />
         <Routes>

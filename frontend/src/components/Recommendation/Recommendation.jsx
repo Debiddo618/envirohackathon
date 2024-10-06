@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from 'prop-types';
 import styles from "./Recommendation.module.css";
 import * as cropService from "../../services/cropService";
 
@@ -165,11 +164,6 @@ const Recommendation = ({ lat=0, lon=0 }) => {
       </div>
     </div>
   );
-};
-
-Recommendation.propTypes = {
-  lat: PropTypes.number.isRequired,
-  lon: PropTypes.number.isRequired,
 };
 
 export default Recommendation;
