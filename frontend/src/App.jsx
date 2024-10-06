@@ -25,6 +25,8 @@ import * as cropService from "./services/cropService";
 export default function App() {
   const [user, setUser] = useState(authService.getUser());
   const [crops, setCrops] = useState([]);
+  const [long, setLong] = useState(-102.003998);
+  const [lat, setLat] = useState(22.119671);
 
   const navigate = useNavigate();
 
@@ -55,15 +57,16 @@ export default function App() {
   };
 
   return (
-    <div
-      className="container-fluid"
-    >
+    <div className="container-fluid">
       <Navbar user={user} handleSignout={handleSignout} />
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route
+          path="/"
+          element={<LandingPage setLong={setLong} setLat={setLat} />}
+        />
         <Route path="/cropchart" element={<CropChart />} />
         <Route path="/rain" element={<RainPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard long={long} lat={long} />} />
         <Route
           path="/users/signup"
           element={<SignUpForm setUser={setUser} />}
