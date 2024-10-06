@@ -17,7 +17,7 @@ import RainPage from "./components/RainPage/RainPage";
 import Recommendation from "./components/Recommendation/Recommendation";
 import Crops from "./components/Crops/Crops";
 import LandingPage from "./Pages/LandingPage/Landingpage/Landingpage";
-
+import AddCropModal from "../src/components/AddCropModal/AddCropModal"
 /*--------------------services--------------- */
 import * as authService from "./services/authService";
 import * as cropService from "./services/cropService";
@@ -84,7 +84,7 @@ export default function App() {
       <div className="container-fluid">
         <Navbar user={user} handleSignout={handleSignout} />
         <Routes>
-          <Route path="/nothing" element={<h1>Test</h1>} />
+          <Route path="/test" element={<AddCropModal />} />
           <Route path="/" element={<LandingPage />} />
           <Route path="/cropchart" element={<CropChart />} />
           <Route path="/rain" element={<RainPage />} />

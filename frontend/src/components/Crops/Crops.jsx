@@ -1,12 +1,12 @@
 import styles from "./Crops.module.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 
 const Crops = (props) => {
-  const [showNotification, setShowNotification] = useState(false);
-
-  const handleShowNotification = () => setShowNotification(true);
-  const handleCloseNotification = () => setShowNotification(false);
+  const [showModal, setShowModal] = useState(false);
   
   const initialState = {
     name: "",
@@ -20,7 +20,6 @@ const Crops = (props) => {
   const [formData, setFormData] = useState(
     props.selected ? props.selected : initialState
   );
-  const [isFormVisible, setIsFormVisible] = useState(false);
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
@@ -34,7 +33,7 @@ const Crops = (props) => {
       props.handleAddCrop(formData);
     }
     setFormData(initialState);
-    setIsFormVisible(false);
+    setShowModal(false); // Close the modal after submission
   };
 
   return (
@@ -80,84 +79,95 @@ const Crops = (props) => {
         </div>
       </div>
 
-      <button
-        className={styles.addButton}
-        onClick={() => setIsFormVisible(!isFormVisible)}
-      >
+      <Button className={styles.addButton} onClick={() => setShowModal(true)}>
         <ion-icon name="add-outline"></ion-icon>Add Crop
-      </button>
+      </Button>
 
-      {isFormVisible && (
-        <div className={styles.formContainer}>
-          <form className={styles.form} onSubmit={handleSubmitForm}>
-            <label htmlFor="name">Name</label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-            <label htmlFor="rain_average">Average Rainfall (mm)</label>
-            <input
-              id="rain_average"
-              name="rain_average"
-              type="number"
-              value={formData.rain_average}
-              onChange={handleChange}
-              required
-            />
-            <label htmlFor="start_date">Start Date</label>
-            <input
-              id="start_date"
-              name="start_date"
-              type="date"
-              value={formData.start_date || ""}
-              onChange={handleChange}
-            />
-            <label htmlFor="end_date">End Date</label>
-            <input
-              id="end_date"
-              name="end_date"
-              type="date"
-              value={formData.end_date || ""}
-              onChange={handleChange}
-            />
-            <label htmlFor="harvest_date">Harvest Date</label>
-            <input
-              id="harvest_date"
-              name="harvest_date"
-              type="date"
-              value={formData.harvest_date || ""}
-              onChange={handleChange}
-            />
-            <label htmlFor="duration">Duration (days)</label>
-            <input
-              id="duration"
-              name="duration"
-              type="number"
-              value={formData.duration}
-              onChange={handleChange}
-            />
-            <button type="submit" className={styles.submitButton}>
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>{props.selected ? "Update Crop" : "Add Crop"}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={handleSubmitForm}>
+            <Form.Group className="mb-3" controlId="formName">
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formRainAverage">
+              <Form.Label>Average Rainfall (mm)</Form.Label>
+              <Form.Control
+                type="number"
+                name="rain_average"
+                value={formData.rain_average}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formStartDate">
+              <Form.Label>Start Date</Form.Label>
+              <Form.Control
+                type="date"
+                name="start_date"
+                value={formData.start_date || ""}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formEndDate">
+              <Form.Label>End Date</Form.Label>
+              <Form.Control
+                type="date"
+                name="end_date"
+                value={formData.end_date || ""}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formHarvestDate">
+              <Form.Label>Harvest Date</Form.Label>
+              <Form.Control
+                type="date"
+                name="harvest_date"
+                value={formData.harvest_date || ""}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formDuration">
+              <Form.Label>Duration (days)</Form.Label>
+              <Form.Control
+                type="number"
+                name="duration"
+                value={formData.duration}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            <Button type="submit" variant="primary">
               {props.selected ? "Update Crop" : "+ Add Crop To Planner"}
-            </button>
-          </form>
-        </div>
-      )}
+            </Button>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowModal(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
       <div className={styles.buttons}>
-        <button styles={styles.button1}>
+        <Button variant="light">
           <Link to="/" className={styles.link1}>
             Back
           </Link>
-        </button>
-        <button>
-          <Link to="/dashboard" className={styles.link2}>
+        </Button>
+        <Button variant="light">
+          <Link to="/rain" className={styles.link2}>
             Next
           </Link>
-        </button>
+        </Button>
       </div>
     </>
   );
