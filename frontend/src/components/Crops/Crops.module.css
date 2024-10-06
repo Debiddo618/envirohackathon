@@ -1,84 +1,90 @@
-/* .container {
-    display: grid;
+/* Crops.module.css */
+
+.cropsContainer {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 5rem;
-    color: #888;
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    27px
     letter-spacing: 0.18px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-div.table {
+.tableContainer {
     margin-top: 30px;
     width: 100%;
 }
 
-[type=submit],
-button {
-    border-radius: 3rem;
-}
-
-
-.table-container {
+.cropTable {
     width: 100%;
-    margin: 20px 0;
     border-collapse: collapse;
 }
 
-.table-container th,
-.table-container td {
+.tableHeader {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.cropTable th,
+.cropTable td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
-    font-weight: lighter;
 }
 
-.table-container th {
-    background-color: #f2f2f2;
-    color: black;
-    font-size: small;
-    font-weight: 50;
-    font-size: 12px;
-}
-
-.table-container tr:nth-child(even) {
+.cropTable tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-.table-container tr:hover {
+.cropTable tr:hover {
     background-color: #ddd;
 }
 
-form {
+.addButton {
+    background-color: #373937;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+.addButton:hover {
+    background-color: #616e61;
+}
+
+.formContainer {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     width: 50%;
     max-width: 300px;
-    margin: 0 1;
 }
 
-form label {
-    margin-top: 2px;
+.form {
+    display: flex;
+    flex-direction: column;
 }
 
-form input,
-form select,
-form textarea {
+.form label {
+    margin-top: 10px;
+}
+
+.form input {
     width: 100%;
-    padding: 2px;
+    padding: 8px;
     margin-top: 5px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
 }
 
-form button {
+.submitButton {
     background-color: #0b0c0b;
     color: white;
     padding: 10px 20px;
@@ -86,68 +92,28 @@ form button {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-
 }
 
-form button:hover {
+.submitButton:hover {
     background-color: #555655;
-    Darker green on hover
 }
 
-
-.button {
-    background-color: #373937;
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 30px;
-    border-radius: 60px;
-    background: #000;
-}
-
-
-.button:hover {
-    background-color: #616e61;
-}
-
-.buttons {
+.navigationButtons {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
 }
 
-.buttons button {
+.navButton {
     background-color: transparent;
     border: 1px solid black;
     color: white;
     padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
-    border-radius: 30;
-    color: #888;
+    border-radius: 30px;
 }
 
-.buttons button:hover {
+.navButton:hover {
     background-color: #f1d0ad;
 }
-
-.th {
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 20;
-    line-height: normal;
-    letter-spacing: 2.52px;
-    text-transform: uppercase;
-    color: black;
-} */
