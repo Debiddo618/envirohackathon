@@ -10,7 +10,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import SignUpForm from "./components/SignUpForm/SignUpForm";
 import SignInForm from "./components/SignInForm/SignInForm";
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 import CropChart from "./components/CropChart/CropChart";
 import ForecastRainGraph from "./components/ForecastRainGraph/ForecastRainGraph";
 import RainPage from "./components/RainPage/RainPage";
@@ -21,6 +21,7 @@ import LandingPage from "./Pages/LandingPage/Landingpage/Landingpage";
 /*--------------------services--------------- */
 import * as authService from "./services/authService";
 import * as cropService from "./services/cropService";
+export const Coords = createContext(null);
 
 export default function App() {
   const [user, setUser] = useState(authService.getUser());
@@ -28,21 +29,13 @@ export default function App() {
   const [long, setLong] = useState(-102.003998);
   const [lat, setLat] = useState(22.119671);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSignout = () => {
     authService.signout();
     setUser(null);
     navigate("/users/signin");
   };
-
-  useEffect(() => {
-    const fetchAllCrops = async () => {
-      const cropsData = await cropService.index();
-      setCrops(cropsData);
-    };
-    fetchAllCrops();
-  }, []);
 
   // Use the create service to make a pet from form data
   const handleAddCrop = async (formData) => {
@@ -56,31 +49,63 @@ export default function App() {
     }
   };
 
+  // useEffect(() => {
+  //   const fetchAllCrops = async () => {
+  //     const cropsData = await cropService.index();
+  //     setCrops(cropsData);
+  //   };
+  //   fetchAllCrops();
+  // }, []);
+
+  ////////////////////////////////////
+  const api_key = "08b8bcb043f87d6a013fd6efe6738296";
+  const city = "Miami";
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${api_key}`;
+  const [coord, setCoord] = useState([]);
+  const [location, setLocation] = useState(null);
+  console.log(coord);
+
+  useEffect(() => {
+    const fetchLocation = async () => {
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          // console.log(data.coord)
+          setCoord([data.coord.lon, data.coord.lat]);
+        });
+    };
+    fetchLocation();
+  }, []);
+  // console.log(lon)
+  // console.log(lat)
+
+  ///////////////////////////////////////
+
   return (
-    <div className="container-fluid">
-      <Navbar user={user} handleSignout={handleSignout} />
-      <Routes>
-        <Route
-          path="/"
-          element={<LandingPage setLong={setLong} setLat={setLat} />}
-        />
-        <Route path="/cropchart" element={<CropChart />} />
-        <Route path="/rain" element={<RainPage />} />
-        <Route path="/dashboard" element={<Dashboard long={long} lat={long} />} />
-        <Route
-          path="/users/signup"
-          element={<SignUpForm setUser={setUser} />}
-        />
-        <Route
-          path="/users/signin"
-          element={<SignInForm setUser={setUser} />}
-        />
-        <Route path="/rec" element={<Recommendation />} />
-        <Route
-          path="/crops"
-          element={<Crops handleAddCrop={handleAddCrop} crops={crops} />}
-        />
-      </Routes>
-    </div>
+    <Coords.Provider value={coord} >
+      <div className="container-fluid">
+        <Navbar user={user} handleSignout={handleSignout} />
+        <Routes>
+          <Route path="/nothing" element={<h1>Test</h1>} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/cropchart" element={<CropChart />} />
+          <Route path="/rain" element={<RainPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/users/signup"
+            element={<SignUpForm setUser={setUser} />}
+          />
+          <Route
+            path="/users/signin"
+            element={<SignInForm setUser={setUser} />}
+          />
+          <Route path="/rec" element={<Recommendation />} />
+          <Route
+            path="/crops"
+            element={<Crops handleAddCrop={handleAddCrop} crops={crops} />}
+          />
+        </Routes>
+      </div>
+    </Coords.Provider>
   );
 }
