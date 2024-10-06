@@ -8,7 +8,6 @@ import Map from "./components/Map/Map";
 import Navbar from "./components/Navbar/Navbar";
 import Dashboard from "./components/Dashboard/Dashboard";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import Landingpage from "./components/Landingpage/Landingpage";
 import SignUpForm from "./components/SignUpForm/SignUpForm";
 import SignInForm from "./components/SignInForm/SignInForm";
 import { useState, useEffect } from "react";
@@ -17,6 +16,7 @@ import ForecastRainGraph from "./components/ForecastRainGraph/ForecastRainGraph"
 import RainPage from "./components/RainPage/RainPage";
 import Recommendation from "./components/Recommendation/Recommendation";
 import Crops from "./components/Crops/Crops";
+import LandingPage from "./Pages/LandingPage/Landingpage/Landingpage";
 
 /*--------------------services--------------- */
 import * as authService from "./services/authService";
@@ -59,9 +59,9 @@ export default function App() {
     <div className="container-fluid">
       <Navbar user={user} handleSignout={handleSignout} />
       <Routes>
-        <Route path="/" element={<Landingpage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/cropchart" element={<CropChart />} />
-        <Route path="rain" element={<RainPage />} />
+        <Route path="/rain" element={<RainPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route
           path="/users/signup"
