@@ -3,7 +3,6 @@
   grid-template-columns: repeat(12, minmax(0, 1fr));
   overflow: hidden;
   padding-bottom: 5px;
-  margin: 0 170px;
   min-height: 258px;
   gap: 16px;
   position: relative;

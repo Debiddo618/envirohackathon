@@ -8,8 +8,8 @@ const RainPage = () => {
     <div className={styles.container}>
       <Recommendation />
       <OneYearRainGraph />
-      <ForecastRainGraph />
       <HistoricGraph />
+      <ForecastRainGraph />
     </div>
   );
 };

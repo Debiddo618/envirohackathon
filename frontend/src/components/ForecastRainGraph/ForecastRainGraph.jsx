@@ -57,6 +57,8 @@ const ForecastRainGraph = () => {
   };
 
   const options = {
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       x: {
         title: {
@@ -72,16 +74,16 @@ const ForecastRainGraph = () => {
         },
       },
     },
-    plugins: {
-      title: {
-        display: true,
-        text: "Rain Forecast", // Chart title
-      },
-    },
+    // plugins: {
+    //   title: {
+    //     display: true,
+    //     text: "Rain Forecast",
+    //   },
+    // },
   };
 
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.chartContainer}>
         <Line
           className={styles.chart}
@@ -105,7 +107,7 @@ const ForecastRainGraph = () => {
           onChange={handleRangeChange}
         />
       </div>
-    </>
+    </div>
   );
 };
 

@@ -76,6 +76,8 @@ const PrecipitationGraph = () => {
   };
 
   const options = {
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       x: {
         title: {
@@ -97,6 +99,7 @@ const PrecipitationGraph = () => {
         text: "Previous Annual Rain",
       },
     },
+  
   };
 
   return (

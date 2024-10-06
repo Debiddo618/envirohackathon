@@ -12,16 +12,6 @@ import {
   Legend,
 } from "chart.js";
 
-// Register Chart.js components
-ChartJS.register(
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  Title,
-  Tooltip,
-  Legend
-);
 
 const OneYearRainGraph = () => {
   const [rain, setRain] = useState([]);
@@ -116,6 +106,8 @@ const OneYearRainGraph = () => {
         },
       },
     },
+    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
