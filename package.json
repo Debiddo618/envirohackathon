@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "chartjs-adapter-date-fns": "^3.0.0",
-    "date-fns": "^4.1.0",
-    "react-world-flags": "^1.6.0"
-  }
-}
