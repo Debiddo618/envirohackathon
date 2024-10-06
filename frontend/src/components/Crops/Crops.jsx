@@ -1,6 +1,6 @@
-//git test
 import styles from "./Crops.module.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Crops = (props) => {
   const initialState = {
@@ -35,8 +35,8 @@ const Crops = (props) => {
   return (
     <>
       <div className={styles.cropsContainer}>
-        <h1>Step 2:</h1>
-        <p>Set Your Crop Schedule!</p>
+        <div className={styles.text1}>Step 2:</div>
+        <div className={styles.text2}>Set Your Crop Schedule!</div>
         <div className={styles.tableContainer}>
           <table className={styles.cropTable}>
             <thead>
@@ -75,15 +75,16 @@ const Crops = (props) => {
         </div>
       </div>
 
-      <button className={styles.addButton} onClick={() => setIsFormVisible(!isFormVisible)}>
+      <button
+        className={styles.addButton}
+        onClick={() => setIsFormVisible(!isFormVisible)}
+      >
         <ion-icon name="add-outline"></ion-icon>Add Crop
       </button>
 
       {isFormVisible && (
         <div className={styles.formContainer}>
-          <form 
-          className={styles.form}
-          onSubmit={handleSubmitForm}>
+          <form className={styles.form} onSubmit={handleSubmitForm}>
             <label htmlFor="name">Name</label>
             <input
               id="name"
@@ -141,9 +142,17 @@ const Crops = (props) => {
         </div>
       )}
 
-      <div className={styles.navigationButtons}>
-        <button className={styles.navButton}>Back</button>
-        <button className={styles.navButton}>Next</button>
+      <div className={styles.buttons}>
+        <button styles={styles.button1}>
+          <Link to="/" className={styles.link1}>
+            Back
+          </Link>
+        </button>
+        <button>
+        <Link to="/" className={styles.link2}>
+            Next
+          </Link>
+        </button>
       </div>
     </>
   );

@@ -1,119 +1,206 @@
-/* Crops.module.css */
+.text1 {
+  color: #343240;
+  text-align: center;
+  font-family: Canela;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 1.4px;
+}
 
+.text2 {
+  color: #343240;
+  text-align: center;
+  font-family: Canela;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 30px */
+  letter-spacing: 0.8px;
+}
 .cropsContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    letter-spacing: 0.18px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  letter-spacing: 0.18px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .tableContainer {
-    margin-top: 30px;
-    width: 100%;
+  margin-top: 30px;
+  width: 100%;
 }
 
 .cropTable {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .tableHeader {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    text-align: left;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  text-align: left;
 }
 
 .cropTable th,
 .cropTable td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
 }
 
 .cropTable tr:nth-child(even) {
-    background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 
 .cropTable tr:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 .addButton {
-    background-color: #373937;
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 30px;
-    margin-top: 20px;
+  background-color: #373937;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 30px;
+  margin-top: 20px;
 }
 
 .addButton:hover {
-    background-color: #616e61;
+  background-color: #616e61;
 }
 
 .formContainer {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    max-width: 300px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  max-width: 300px;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .form label {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .form input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .submitButton {
-    background-color: #0b0c0b;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
+  background-color: #0b0c0b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .submitButton:hover {
-    background-color: #555655;
+  background-color: #555655;
 }
 
 .navigationButtons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .navButton {
-    background-color: transparent;
-    border: 1px solid black;
-    color: white;
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 30px;
+  background-color: transparent;
+  border: 1px solid black;
+  color: white;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 30px;
 }
 
 .navButton:hover {
-    background-color: #f1d0ad;
+  background-color: #f1d0ad;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  position: fixed;
+  bottom: 20%;
+  left: 0;
+}
+
+.buttons button {
+  border-radius: 50px;
+  width: 100px;
+  padding: 10px 20px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.18px;
+  background-color: #ff9887;
+}
+
+.buttons button:nth-child(1) {
+  background-color: white;
+  color: #ff9887;
+  border: 1px solid #ff9887;
+  transition: all 0.5s;
+}
+
+.buttons button:nth-child(1):hover {
+  background-color: #ff9887;
+  color: white;
+  border: none;
+}
+
+.buttons button:nth-child(2):hover {
+  background-color: transparent;
+  color: #ff9887;
+  border: 1px solid #ff9887;
+}
+
+.link1 {
+  display: flex;
+  color: #ff9887;
+  text-decoration: none;
+  transition: all 0.5s;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.link1:hover {
+  color: white;
+}
+
+.link2 {
+  display: flex;
+  color: white;
+  text-decoration: none;
+  transition: all 0.5s;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.link2:hover{
+    color: #ff9887;
 }

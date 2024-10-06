@@ -3,7 +3,6 @@
   grid-template-columns: repeat(12, minmax(0, 1fr));
   overflow: hidden;
   padding-bottom: 5px;
-  margin: 0 170px;
   min-height: 258px;
   gap: 16px;
   position: relative;
@@ -11,8 +10,9 @@
 
 .gantt .data {
   border-radius: 3rem;
-  width: 100%;
+  width:0;
   position: relative;
+  animation: expand 1s forwards;
 }
 
 .gantt .head {
@@ -72,4 +72,13 @@
 }
 .line-13 {
   right: 0;
+}
+
+@keyframes expand {
+  0%{
+    width: 0;
+  }
+  100%{
+    width: 100%;
+  }
 }

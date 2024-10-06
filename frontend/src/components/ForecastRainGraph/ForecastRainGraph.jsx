@@ -50,13 +50,15 @@ const ForecastRainGraph = () => {
         label: "Rain",
         data: rain,
         fill: false,
-        backgroundColor: "rgba(75,192,192,0.4)",
-        borderColor: "rgba(75,192,192,1)",
+        backgroundColor: "rgba(0, 90, 246, 0.4)",
+        borderColor: "rgba(0, 90, 246, 1)",
       },
     ],
   };
 
   const options = {
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       x: {
         title: {
@@ -72,16 +74,16 @@ const ForecastRainGraph = () => {
         },
       },
     },
-    plugins: {
-      title: {
-        display: true,
-        text: "Rain Forecast", // Chart title
-      },
-    },
+    // plugins: {
+    //   title: {
+    //     display: true,
+    //     text: "Rain Forecast",
+    //   },
+    // },
   };
 
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.chartContainer}>
         <Line
           className={styles.chart}
@@ -105,7 +107,7 @@ const ForecastRainGraph = () => {
           onChange={handleRangeChange}
         />
       </div>
-    </>
+    </div>
   );
 };
 

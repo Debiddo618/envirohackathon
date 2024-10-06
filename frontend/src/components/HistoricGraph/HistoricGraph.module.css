@@ -1,10 +1,9 @@
-.chartContainer {
-  width: 600px;
-  height: 400px;
-  margin: auto;
+.chartContainer{
+  max-height: 258px;
+  min-width: 100%;
 }
 
-/* .chart {
-  width: 100% !important;
-  height: 100% !important;
-} */
+.chart{
+  width: 100%;
+  height: auto;
+}
