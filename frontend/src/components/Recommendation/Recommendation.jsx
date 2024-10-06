@@ -19,6 +19,7 @@ const Recommendation = ({ lat=0, lon=0 }) => {
     fetchAllCrops();
   }, []);
 
+  // format the date in YYYY-MM-DD
   function getCurrentDateFormatted() {
     const today = new Date();
     const year = today.getFullYear();
@@ -27,6 +28,7 @@ const Recommendation = ({ lat=0, lon=0 }) => {
     return `${year}-${month}-${day}`;
   }
 
+  // Calculate tnext year date
   function nextYear(date, days) {
     const resultDate = new Date(date);
     resultDate.setDate(resultDate.getDate() + days);
@@ -36,6 +38,7 @@ const Recommendation = ({ lat=0, lon=0 }) => {
     return `${year}-${month}-${day}`;
   }
 
+  // Hexcode for random green shade
   const getRandomHexColor = () => {
     const greenValue = Math.floor(Math.random() * 256);
     const redValue = Math.floor(Math.random() * 128);
@@ -60,15 +63,16 @@ const Recommendation = ({ lat=0, lon=0 }) => {
             monthlyRain[month] += data.daily.precipitation_sum[index];
           });
 
-          if (days === 90) {
-            setMonths(months.slice(0, 3));
-          } else if (days === 365) {
-            setMonths([
-              "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-            ]);
-          }
+          // if (days === 90) {
+          //   setMonths(months.slice(0, 3));
+          // } else if (days === 365) {
+          //   setMonths([
+          //     "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+          //     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+          //   ]);
+          // }
 
+          // Monthly Daily Rain
           setAverageDailyRain(monthlyRain.map((num) => num / 30));
         } catch (error) {
           console.error("Error fetching data: ", error);

@@ -3,20 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./NavBar.module.css";
 
 const Navbar = (props) => {
-  const [searchCity, setSearchCity] = useState("");
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
-
-  const handleCitySearch = async (e) => {
-    e.preventDefault();
-    if (searchCity.trim() === "") {
-      setError("Please enter a city name.");
-      return;
-    }
-
-    navigate(`/weather?city=${searchCity}`);
-  };
 
   const days = [
     "Sunday",
@@ -48,8 +36,13 @@ const Navbar = (props) => {
   const formattedDate = `${dayName} ${day} ${monthName}`;
 
   const onLandingPage = location.pathname === "/";
-
   if (onLandingPage) return null;
+
+  const [city, setCity] = useState("");
+
+  const handleChange = (e) => {
+    setCity(e.target.value);
+  };
 
   return (
     <>
@@ -90,7 +83,16 @@ const Navbar = (props) => {
         </div>
         <div className={styles.icon}>
           <div className={styles.section2}>
-            <button className={styles.button}>
+            <input
+              type="text"
+              placeholder="Enter a city"
+              value={city}
+              onChange={handleChange}
+            />
+            <button
+              className={styles.button}
+              onClick={() => props.handleSearch(city)}
+            >
               <svg
                 width="24"
                 height="33"
