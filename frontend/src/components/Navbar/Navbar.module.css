@@ -1,53 +1,87 @@
-.container{
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 36px;
+  margin-right: 170px;
+  margin-left: 170px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid black;
+  position: relative;
+}
+
+.section1 {
+  display: flex;
+}
+
+.logo {
+  width: 55px;
+  height: 55px;
+  background-color: grey;
+  border-radius: 50%;
+  margin-right: 14px;
+}
+
+.locationdate {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.date {
+  color: #000;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.32px;
+}
+
+
+.section2 {
+    gap: 24px;
+    width: auto;
+    height: auto;
+}
+
+.button {
+  background-color: transparent;
+}
+
+.button:hover {
+  background-color: transparent;
+}
+
+.location {
+  color: #000;
+  font-family: Inter;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.overview{
     display: flex;
-    justify-content: space-between;
-    margin-top: 36px;
-    margin-right: 170px;
-    margin-left: 170px;
-    padding: 0 10px;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 16px;
 }
 
-.section1{
-    display: flex;
+.text1 {
+  color: rgba(0, 0, 0, 0.4);
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
-.logo{
-    width: 55px;
-    height: 55px;
-    background-color: grey;
-    border-radius: 50%;
-    margin-right: 14px;
+.text2 {
+  color: #000;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
-
-.locationdate{
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-}
-
-.date{
-    padding: 0;
-    margin: 0;
-    display: inline-block;
-}
-
-.section2{
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    width: 200px;
-}
-
-.button{
-    background-color: transparent;
-    color: black;
-    height: 100%;
-    aspect-ratio: 1/1;
-    font-size: 30px;
-    padding: 0;
-}
-
-.button:hover{
-    background-color: transparent;
-}
-

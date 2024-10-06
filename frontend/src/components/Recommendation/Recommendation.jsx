@@ -115,8 +115,6 @@ const Recommendation = () => {
     { name: "rice", rain: 1.2 },
   ];
 
-  console.log(crops);
-
   function longestIndexesBetween(arr, x) {
     let maxDistance = 0;
     let result = null;
@@ -135,8 +133,6 @@ const Recommendation = () => {
     return result;
   }
 
-  console.log(monthlyDailyRainFall);
-
   crops.forEach((crop) => {
     const span = longestIndexesBetween(monthlyDailyRainFall, crop.rain_average);
     crop.span = span;
@@ -151,8 +147,6 @@ const Recommendation = () => {
           marginBottom: "10px",
         }}
       >
-        <button onClick={() => setDays(90)}>3 Months</button>
-        <button onClick={() => setDays(365)}>1 Year</button>
       </div>
 
       <div className={styles.ganttContainer}>
