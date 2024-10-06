@@ -2,6 +2,7 @@ import { useState } from "react";
 import { signup } from "../../services/authService";
 import { useNavigate } from "react-router-dom";
 import styles from "./SignUpForm.module.css";
+import { Link } from "react-router-dom";
 
 const SignUpForm = (props) => {
   const navigate = useNavigate();
@@ -9,14 +10,32 @@ const SignUpForm = (props) => {
     firstName: "",
     lastName: "",
     username: "",
+    farm: "",
+    city: "",
+    state: "",
+    country: "",
+    zipcode: "",
+    email: "",
     password: "",
     passwordConf: "",
   });
-  const [message, setMessage] = useState([""]);
+  const [message, setMessage] = useState("");
   const updateMessage = (msg) => {
     setMessage(msg);
   };
-  const { firstName, lastName, username, password, passwordConf } = formData;
+  const {
+    firstName,
+    lastName,
+    username,
+    farm,
+    city,
+    state,
+    country,
+    zipcode,
+    email,
+    password,
+    passwordConf,
+  } = formData;
 
   const handleChange = (e) => {
     updateMessage("");
@@ -27,59 +46,50 @@ const SignUpForm = (props) => {
     e.preventDefault();
     try {
       const newUser = await signup(formData);
-      navigate("/users/signin");
+      navigate("/crops");
     } catch (err) {
       updateMessage(err.message);
     }
   };
 
   const isFormInvalid = () => {
-    return !(username && password && password === passwordConf);
+    return !(
+      username &&
+      password &&
+      password === passwordConf &&
+      firstName &&
+      lastName &&
+      farm &&
+      city &&
+      state &&
+      country &&
+      zipcode &&
+      email
+    );
   };
 
   return (
-    <>
+    <div className={styles.outer}>
       <div className={styles.container}>
-        {/* <div className={styles.logoImage}></div> */}
-        <div className={styles.formContainer}>
-          <form
-            className={`border container-m p-5 h-75 text-light w-50 ${styles.form}`}
-            onSubmit={handleSubmit}
-          >
-            <h1>Sign Up</h1>
-            <div className={styles.signup}>
-              <p>Have an account already?</p>
-              <a
-                href=""
-                className="text-light"
-                onClick={() => navigate("/users/signin")}
-              >
-                Login here
-              </a>
-            </div>
-            <div className="row mb-2">
-              <div className="col">
-                <label htmlFor="firstName" className="form-label">
-                  First Name
-                </label>
-
+        <div className={styles.text1}>Step 1:</div>
+        <div className={styles.text2}>Create Your Account</div>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.groups}>
+            <div className={styles.group}>
+              <div className={`${styles.formInput} ${styles.formInput1}`}>
+                <label htmlFor="firstName">First Name</label>
                 <input
                   type="text"
-                  className="form-control"
                   id="firstName"
                   name="firstName"
                   value={firstName}
                   onChange={handleChange}
                 />
               </div>
-              <div className="col">
-                <label htmlFor="lastName" className="form-label">
-                  Last Name
-                </label>
-
+              <div className={`${styles.formInput} ${styles.formInput1}`}>
+                <label htmlFor="lastName">Last Name</label>
                 <input
                   type="text"
-                  className="form-control"
                   id="lastName"
                   name="lastName"
                   value={lastName}
@@ -87,62 +97,121 @@ const SignUpForm = (props) => {
                 />
               </div>
             </div>
-
-            <div className="mb-2">
-              <label htmlFor="username" className="form-label">
-                Username
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="username"
-                name="username"
-                value={username}
-                onChange={handleChange}
-              />
+            <div className={styles.group}>
+              <div className={`${styles.formInput} ${styles.formInput1}`}>
+                <label htmlFor="farm">Farm Address</label>
+                <input
+                  type="text"
+                  id="farm"
+                  name="farm"
+                  value={farm}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={`${styles.formInput} ${styles.formInput1}`}>
+                <label htmlFor="city">City</label>
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  value={city}
+                  onChange={handleChange}
+                />
+              </div>
             </div>
+            <div className={styles.group}>
+              <div className={styles.formInput} style={{ width: "129px" }}>
+                <label htmlFor="state">State</label>
+                <input
+                  type="text"
+                  id="state"
+                  name="state"
+                  value={state}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={styles.formInput} style={{ width: "115px" }}>
+                <label htmlFor="country">Country</label>
+                <input
+                  type="text"
+                  id="country"
+                  name="country"
+                  value={country}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={styles.formInput} style={{ width: "97px" }}>
+                <label htmlFor="zipcode">Zipcode</label>
+                <input
+                  type="text"
+                  id="zipcode"
+                  name="zipcode"
+                  value={zipcode}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className={styles.group}>
+              <div className={styles.formInput}>
+                <label htmlFor="username">Username</label>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  value={username}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={styles.formInput}>
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={email}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+          </div>
 
-            <div className="mb-2">
-              <label htmlFor="password" className="form-label">
-                Password
-              </label>
+          <div className={styles.group}>
+            <div className={styles.formInput}>
+              <label htmlFor="password">Password</label>
               <input
                 type="password"
                 name="password"
-                className="form-control"
                 id="password"
                 value={password}
                 onChange={handleChange}
                 autoComplete="off"
               />
             </div>
-
-            <div className="mb-3">
-              <label htmlFor="confirm" className="form-label">
-                Confirm Password
-              </label>
+            <div className={styles.formInput}>
+              <label htmlFor="passwordConf">Re-Enter Password</label>
               <input
                 type="password"
                 name="passwordConf"
-                className="form-control"
                 id="passwordConf"
                 value={passwordConf}
                 onChange={handleChange}
                 autoComplete="off"
               />
             </div>
-            <button
-              type="submit"
-              disabled={isFormInvalid()}
-              className={`btn w-100 my-3 form-control ${styles.button}`}
-            >
-              Sign Up
+          </div>
+          <div className={styles.buttons}>
+            <button styles={styles.button1}>
+              <Link to="/" className={styles.link1}>
+                Back
+              </Link>
             </button>
-          </form>
-          <p>{message}</p>
-        </div>
+            <button type="submit" disabled={isFormInvalid()}>
+              Next
+            </button>
+          </div>
+        </form>
       </div>
-    </>
+    </div>
   );
 };
 

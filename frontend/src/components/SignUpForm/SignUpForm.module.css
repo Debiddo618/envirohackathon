@@ -1,48 +1,118 @@
+.outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
 .container {
-    display: flex;
-    margin-top: 50px;
-    background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
 }
 
-.logoImage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
+.text1 {
+  color: #343240;
+  text-align: center;
+  font-family: Canela;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: 1.4px;
 }
 
-.formContainer {
-    flex: 1;
-    min-height: 100vh;
-    margin: 30px;
+.text2 {
+  color: var(--Terracast-OffBlackv2, #343240);
+  text-align: center;
+  font-family: Canela;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 30px */
+  letter-spacing: 0.8px;
 }
 
-.signup {
-    display: flex;
-    gap: 5px;
+.container label {
+  color: var(--Terracast-MidGray, #5f5e66);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+  letter-spacing: 0.64px;
 }
 
-.form {
+.container input {
+  border-radius: 3px;
+  border: 1px solid #5f5e66;
+  background: #f9f5f2;
+}
+
+.formInput {
+  display: flex;
+  flex-direction: column;
+}
+
+.group {
+  display: flex;
+  gap: 10px;
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 42px;
+}
+
+.buttons button {
+  border-radius: 50px;
+  width: 100px;
+  padding: 10px 20px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.18px;
+  background-color: #ff9887;
+}
+
+.buttons button:nth-child(1) {
+  background-color: white;
+  color: #ff9887;
+  border: 1px solid #ff9887;
+  transition: all 0.5s;
+}
+
+.buttons button:nth-child(1):hover {
+  background-color: #ff9887;
+  color: white;
+  border: none;
+}
+
+.buttons button:nth-child(2):hover {
+  background-color: transparent;
+  color: #ff9887;
+  border: 1px solid #ff9887;
+}
+
+.link1{
     display: flex;
-    flex-direction: column;
+    color: #ff9887;
+    text-decoration: none;
+    transition: all 0.5s;
+    width: 100%;
+    height: 100%;
     justify-content: center;
-    border-radius: 2rem;
-    background-color: black;
+    align-items: center;
 }
-
-.img {
-    width: 150px;
-    margin: 0 auto;
-    box-shadow: #000000;
-    box-shadow: 0 5px 10px #000000;
-    border-radius: 100%;
-
-}
-
-.button:disabled,
-.button,
-.button:hover {
-    background-color: #000000;
-    border: none;
-    color: rgb(0, 0, 0);
+.link1:hover{
+    color: white;
 }
