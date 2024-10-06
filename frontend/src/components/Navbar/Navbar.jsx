@@ -26,9 +26,9 @@ const Navbar = (props) => {
   const monthName = months[today.getMonth()];
   const formattedDate = `${dayName} ${day} ${monthName}`;
 
-  const onLandingPage = location.pathname === "/"; // Conditionally check if we are on the landing page
+  const onLandingPage = location.pathname === "/";
 
-  if (onLandingPage) return null; // Don't render navbar on landing page
+  if (onLandingPage) return null;
 
   return (
     <>

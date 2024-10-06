@@ -4,11 +4,11 @@ import Sunlight from "../Sunlight/Sunlight";
 import Map from "../Map/Map";
 import TempChart from "../TempChart/TempChart";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";  // Import useLocation
+import { useLocation } from "react-router-dom";
 
 const Dashboard = () => {
-  const location = useLocation();  // Retrieve the passed state
-  const { city, temperature, lon, lat } = location.state || {};  // Destructure state
+  const location = useLocation();
+  const { city, temperature, lon, lat } = location.state || {};
 
   const [sunSet, setSunSet] = useState(null);
   const [sunRise, setSunRise] = useState(null);
