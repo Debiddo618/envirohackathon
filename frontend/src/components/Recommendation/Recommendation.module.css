@@ -1,47 +1,75 @@
-
 .gantt {
-  margin-top: 0;
-  padding: 5rem 20rem 5rem 20rem;
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   overflow: hidden;
   padding-bottom: 5px;
+  margin: 0 170px;
+  min-height: 258px;
+  gap: 16px;
+  position: relative;
 }
 
-.gantt div {
-  padding: .5rem;
+.gantt .data {
   border-radius: 3rem;
-  margin: 1rem;
-  /* background-color: red; */
   width: 100%;
   position: relative;
 }
 
-.gantt div::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 100%;
-  transform: translateX(-50%);
-  border: 1px solid black;
-  height: 200vh;
-  z-index: -1;
-  opacity: 0.2;
-}
-
-.gantt div::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 100%;
-  transform: translateX(-50%);
-  border: 1px solid black;
-  height: 200vh;
-  z-index: -1;
-  opacity: 0.2;
-}
 .gantt .head {
-  text-align: center;
-  font-weight: 700;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
 }
 
+.ganttContainer{
+  margin-top: 16px;
+}
+.line {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  background-color: grey;
+  top: 30px;
+}
+
+.line-1 {
+  left: 8.33%;
+}
+.line-2 {
+  left: 16.66%;
+}
+.line-3 {
+  left: 25%;
+}
+.line-4 {
+  left: 33.33%;
+}
+.line-5 {
+  left: 41.66%;
+}
+.line-6 {
+  left: 50%;
+}
+.line-7 {
+  left: 58.33%;
+}
+.line-8 {
+  left: 66.66%;
+}
+.line-9 {
+  left: 75%;
+}
+.line-10 {
+  left: 83.33%;
+}
+.line-11 {
+  left: 91.66%;
+}
+.line-12 {
+  left: 0;
+}
+.line-13 {
+  right: 0;
+}

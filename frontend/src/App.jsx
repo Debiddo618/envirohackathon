@@ -26,7 +26,6 @@ export default function App() {
   const [user, setUser] = useState(authService.getUser());
   const [crops, setCrops] = useState([]);
 
-
   const navigate = useNavigate();
 
   const handleSignout = () => {
@@ -43,20 +42,22 @@ export default function App() {
     fetchAllCrops();
   }, []);
 
-    // Use the create service to make a pet from form data
-    const handleAddCrop = async (formData) => {
-      try {
-        const newCrop = await cropService.create(formData)
-        // add the newPet to the petList array
-        setCrops([newCrop, ...crops]);
-        setIsFormOpen(false);
-      } catch (error) {
-        console.log(error)
-      }
+  // Use the create service to make a pet from form data
+  const handleAddCrop = async (formData) => {
+    try {
+      const newCrop = await cropService.create(formData);
+      // add the newPet to the petList array
+      setCrops([newCrop, ...crops]);
+      setIsFormOpen(false);
+    } catch (error) {
+      console.log(error);
     }
+  };
 
   return (
-    <div className="container-fluid">
+    <div
+      className="container-fluid"
+    >
       <Navbar user={user} handleSignout={handleSignout} />
       <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -72,7 +73,10 @@ export default function App() {
           element={<SignInForm setUser={setUser} />}
         />
         <Route path="/rec" element={<Recommendation />} />
-        <Route path="/crops" element={<Crops handleAddCrop={handleAddCrop} crops={crops}/>} />
+        <Route
+          path="/crops"
+          element={<Crops handleAddCrop={handleAddCrop} crops={crops} />}
+        />
       </Routes>
     </div>
   );
