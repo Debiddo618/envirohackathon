@@ -9,8 +9,6 @@ const api_key = "08b8bcb043f87d6a013fd6efe6738296";
 
 export default function LandingPage() {
   const [city, setCity] = useState("");
-  const [temperature, setTemperature] = useState(null); 
-  const [location, setLocation] = useState({}); 
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
@@ -33,12 +31,18 @@ export default function LandingPage() {
       }
 
       const data = await response.json();
-      setTemperature(data.main.temp);
-      setLocation({ lon: data.coord.lon, lat: data.coord.lat }); 
+      const weatherData = {
+        city: city,
+        temperature: data.main.temp,
+        lon: data.coord.lon,
+        lat: data.coord.lat
+      };
+
+      // Navigate to the dashboard and pass weatherData via state
+      navigate("/dashboard", { state: weatherData });
+
     } catch (err) {
       setError(err.message);
-      setTemperature(null); 
-      setLocation({});
     }
   };
 
@@ -63,15 +67,7 @@ export default function LandingPage() {
         </form>
 
         {error && <p className="error-message">{error}</p>}
-        {temperature !== null && !error && (
-          <div>
-            <p className="temperature">The temperature in {city} is {temperature}°C</p>
-            <p className="location">
-              Longitude: {location.lon}, Latitude: {location.lat}
-            </p>
-          </div>
-        )}
-                
+
         <button onClick={() => navigate("users/signin")} className="signin-btn">
           SignIn
         </button>
