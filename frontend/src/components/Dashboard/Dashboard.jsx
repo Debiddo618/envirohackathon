@@ -4,12 +4,10 @@ import Sunlight from "../Sunlight/Sunlight";
 import Map from "../Map/Map";
 import TempChart from "../TempChart/TempChart";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 
 const Dashboard = () => {
-  const location = useLocation();
-  const { city, temperature, lon, lat } = location.state || {};
-
+  const[long,setLong]= useState(-102.003998);
+  const[lat,setLat]= useState(22.119671)
   const [sunSet, setSunSet] = useState(null);
   const [sunRise, setSunRise] = useState(null);
 
@@ -20,24 +18,22 @@ const Dashboard = () => {
   const [low, setLow] = useState(null);
 
   useEffect(() => {
-    if (lon && lat) {
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset&temperature_unit=fahrenheit&precipitation_unit=inch&forecast_days=1`;
-
-      fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-          setHigh(data.daily.temperature_2m_max[0]);
-          setLow(data.daily.temperature_2m_min[0]);
-          setSunSet(data.daily.sunset[0]);
-          setSunRise(data.daily.sunrise[0]);
-        });
-    }
-  }, [lon, lat]);
-
+    const url =
+      "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset&temperature_unit=fahrenheit&precipitation_unit=inch&forecast_days=1";
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        console.log(data.daily.temperature_2m_max[0])
+        setHigh(data.daily.temperature_2m_max[0])
+        setLow(data.daily.temperature_2m_min[0])
+        setSunSet(data.daily.sunset[0]);
+        setSunRise(data.daily.sunrise[0]);
+      });
+  }, []);
   return (
     <>
       <div className={`${styles.container}`}>
-        <h1>Weather Dashboard for {city}</h1>
         <div className={styles.section1}>
           <div className={`${styles.component} ${styles.component1}`}>
             <Weather high={high} low={low} />
@@ -45,6 +41,8 @@ const Dashboard = () => {
           <div className={`${styles.component} ${styles.component2}`}>
             <Sunlight sunSet={sunSet} sunRise={sunRise} />
           </div>
+          <div className={`${styles.component} ${styles.component3}`}></div>
+          <div className={`${styles.component} ${styles.component4}`}></div>
         </div>
         <div className={styles.section2}>
           <div className={`${styles.component} ${styles.component1}`}>

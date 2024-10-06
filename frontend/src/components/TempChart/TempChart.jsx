@@ -25,14 +25,14 @@ ChartJS.register(
   annotationPlugin
 );
 
-const TempChart = () => {
+const TempChart = ({long,lat}) => {
   const [days, setDays] = useState(3);
   const [maxtemp, setMaxTemp] = useState([]);
   const [mintemp, setMinTemp] = useState([]);
   const [date, setDate] = useState([]);
 
   useEffect(() => {
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&daily=temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&precipitation_unit=inch&past_days=7&forecast_days=${days}`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&precipitation_unit=inch&past_days=7&forecast_days=${days}`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {

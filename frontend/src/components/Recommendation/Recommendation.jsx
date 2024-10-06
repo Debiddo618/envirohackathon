@@ -2,24 +2,11 @@ import React, { useState, useEffect } from "react";
 import styles from "./Recommendation.module.css";
 import * as cropService from "../../services/cropService";
 
-const Recommendation = ({lat, lon}) => {
-  console.log(lat)
-  console.log(lon)
-
+const Recommendation = ({ lat=0, lon=0 }) => {
   const [averageDailyRain, setAverageDailyRain] = useState([]);
   const [months, setMonths] = useState([
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
   ]);
   const [crops, setCrops] = useState([]);
   const [days, setDays] = useState(365);
@@ -32,7 +19,7 @@ const Recommendation = ({lat, lon}) => {
     fetchAllCrops();
   }, []);
 
-  // Format the current date to YYYY-MM-DD format
+  // format the date in YYYY-MM-DD
   function getCurrentDateFormatted() {
     const today = new Date();
     const year = today.getFullYear();
@@ -41,7 +28,7 @@ const Recommendation = ({lat, lon}) => {
     return `${year}-${month}-${day}`;
   }
 
-  // Find the date after a year
+  // Calculate tnext year date
   function nextYear(date, days) {
     const resultDate = new Date(date);
     resultDate.setDate(resultDate.getDate() + days);
@@ -51,7 +38,7 @@ const Recommendation = ({lat, lon}) => {
     return `${year}-${month}-${day}`;
   }
 
-  // Generate a random green shade
+  // Hexcode for random green shade
   const getRandomHexColor = () => {
     const greenValue = Math.floor(Math.random() * 256);
     const redValue = Math.floor(Math.random() * 128);
@@ -63,46 +50,37 @@ const Recommendation = ({lat, lon}) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = `https://climate-api.open-meteo.com/v1/climate?latitude=52.52&longitude=13.41&start_date=${getCurrentDateFormatted()}&end_date=${nextYearDate}&models=MRI_AGCM3_2_S&daily=precipitation_sum`;
-      try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error("Network response was not ok");
-        const data = await response.json();
+      if (lat !== undefined && lon !== undefined) {
+        const url = `https://climate-api.open-meteo.com/v1/climate?latitude=${lat}&longitude=${lon}&start_date=${getCurrentDateFormatted()}&end_date=${nextYearDate}&models=MRI_AGCM3_2_S&daily=precipitation_sum`;
+        try {
+          const response = await fetch(url);
+          if (!response.ok) throw new Error("Network response was not ok");
+          const data = await response.json();
 
-        // Aggregate precipitation data by month
-        const monthlyRain = new Array(12).fill(0);
-        data.daily.time.forEach((date, index) => {
-          const month = new Date(date).getMonth();
-          monthlyRain[month] += data.daily.precipitation_sum[index];
-        });
-        if (days === 90) {
-          setMonths(months.slice(0, 3));
-        } else {
-          if (days === 365) {
-            setMonths([
-              "Jan",
-              "Feb",
-              "Mar",
-              "Apr",
-              "May",
-              "Jun",
-              "Jul",
-              "Aug",
-              "Sep",
-              "Oct",
-              "Nov",
-              "Dec",
-            ]);
-          }
+          const monthlyRain = new Array(12).fill(0);
+          data.daily.time.forEach((date, index) => {
+            const month = new Date(date).getMonth();
+            monthlyRain[month] += data.daily.precipitation_sum[index];
+          });
+
+          // if (days === 90) {
+          //   setMonths(months.slice(0, 3));
+          // } else if (days === 365) {
+          //   setMonths([
+          //     "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+          //     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+          //   ]);
+          // }
+
+          // Monthly Daily Rain
+          setAverageDailyRain(monthlyRain.map((num) => num / 30));
+        } catch (error) {
+          console.error("Error fetching data: ", error);
         }
-
-        setAverageDailyRain(monthlyRain.map((num) => num / 30));
-      } catch (error) {
-        console.error("Error fetching data: ", error);
       }
     };
     fetchData();
-  }, [nextYearDate]);
+  }, [lat, lon, nextYearDate]);
 
   const monthlyDailyRainFall = averageDailyRain.length
     ? averageDailyRain
@@ -112,6 +90,7 @@ const Recommendation = ({lat, lon}) => {
         1.687333333333333, 1.3953333333333335, 1.633666666666667,
         2.074333333333333, 1.3143333333333331,
       ];
+
   function longestIndexesBetween(arr, x) {
     let maxDistance = 0;
     let result = null;
@@ -169,7 +148,7 @@ const Recommendation = ({lat, lon}) => {
 
             return (
               <div
-                key={crop.name}
+                key={index}
                 className={styles.data}
                 style={{
                   background: getRandomHexColor(),
