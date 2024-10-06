@@ -23,15 +23,14 @@ ChartJS.register(
   Legend
 );
 
-const PrecipitationGraph = () => {
+const PrecipitationGraph = ({ lat, lon }) => {
   const [days, setDays] = useState(3);
   const [rain, setRain] = useState([]);
   const [months, setMonths] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const url =
-        "https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&start_date=2023-01-01&end_date=2023-12-31&daily=precipitation_sum,temperature_2m_max&precipitation_unit=inch&temperature_unit=fahrenheit&timezone=auto";
+      const url = `https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&start_date=2023-01-01&end_date=2023-12-31&daily=precipitation_sum,temperature_2m_max&precipitation_unit=inch&temperature_unit=fahrenheit&timezone=auto`;
       const response = await fetch(url);
       const data = await response.json();
 
@@ -51,12 +50,25 @@ const PrecipitationGraph = () => {
 
       setRain(monthlyRain);
       setMonths([
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
       ]);
     };
-    fetchData();
-  }, [days]);
+    // Only fetch data if lat and lon are defined
+    if (lat !== undefined && lon !== undefined) {
+      fetchData();
+    }
+  }, [days, lon, lat]);
 
   const handleRangeChange = (event) => {
     setDays(event.target.value);
@@ -99,7 +111,6 @@ const PrecipitationGraph = () => {
         text: "Previous Annual Rain",
       },
     },
-  
   };
 
   return (
