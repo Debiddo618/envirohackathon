@@ -85,3 +85,85 @@
   font-weight: 500;
   line-height: normal;
 }
+<<<<<<< HEAD
+=======
+
+.locationdate{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.date{
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+.section2{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    width: 200px;
+}
+
+.button{
+    background-color: transparent;
+    color: black;
+    height: 100%;
+    aspect-ratio: 1/1;
+    font-size: 30px;
+    padding: 0;
+}
+
+.button:hover{
+    background-color: transparent;
+}
+
+.searchForm {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .searchInput {
+    width: 200px;
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  .searchSubmit {
+    padding: 5px 10px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  
+  .searchSubmit:hover {
+    background-color: rgb(0, 0, 0);
+  }
+  .searchForm {
+    display: flex;
+    align-items: center;
+  }
+  
+  .searchInput {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 10px;
+  }
+  
+  .searchSubmitButton {
+    padding: 5px 10px;
+    border: none;
+    background-color: #000000;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+    
+
+>>>>>>> main

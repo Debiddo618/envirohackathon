@@ -40,7 +40,7 @@ const SignUpForm = (props) => {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.logoImage}></div>
+        {/* <div className={styles.logoImage}></div> */}
         <div className={styles.formContainer}>
           <form
             className={`border container-m p-5 h-75 text-light w-50 ${styles.form}`}

@@ -2,7 +2,6 @@ import styles from "./Crops.module.css";
 import { useState } from "react";
 
 const Crops = (props) => {
-  // Empty fields to use if a crop has not been selected
   const initialState = {
     name: "",
     rain_average: 0,
@@ -15,8 +14,8 @@ const Crops = (props) => {
   const [formData, setFormData] = useState(
     props.selected ? props.selected : initialState
   );
+  const [isFormVisible, setIsFormVisible] = useState(false);
 
-  // handleChange function to update formData state
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
   };
@@ -29,125 +28,119 @@ const Crops = (props) => {
       props.handleAddCrop(formData);
     }
     setFormData(initialState);
+    setIsFormVisible(false);
   };
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.cropsContainer}>
         <h1>Step 2:</h1>
         <p>Set Your Crop Schedule!</p>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>CROP</th>
-              <th>PLANT</th>
-              <th>HARVEST</th>
-              <th>DURATION</th>
-              <th>DATE</th>
-            </tr>
-          </thead>
-          <tbody>
-            {props.crops && props.crops.length > 0 ? (
-              props.crops.map((crop) => (
-                <tr key={crop._id}>
-                  <td>{crop.name}</td>
-                  <td>
-                    {crop.start_date
-                      ? new Date(crop.start_date).toLocaleDateString()
-                      : "-"}
-                  </td>
-                  <td>
-                    {crop.harvest_date
-                      ? new Date(crop.harvest_date).toLocaleDateString()
-                      : "-"}
-                  </td>
-                  <td>{crop.duration} days</td>
-                  <td>
-                    <ion-icon name="calendar-outline"></ion-icon>
-                    {crop.start_date && crop.harvest_date
-                      ? `${new Date(
-                          crop.start_date
-                        ).toLocaleDateString()} - ${new Date(
-                          crop.harvest_date
-                        ).toLocaleDateString()}`
-                      : "No Dates Available"}
-                  </td>
-                </tr>
-              ))
-            ) : (
+        <div className={styles.tableContainer}>
+          <table className={styles.cropTable}>
+            <thead>
               <tr>
-                <td colSpan="5">No crops available</td>
+                <th className={styles.tableHeader}>CROP</th>
+                <th className={styles.tableHeader}>PLANT</th>
+                <th className={styles.tableHeader}>HARVEST</th>
+                <th className={styles.tableHeader}>DURATION</th>
               </tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {props.crops && props.crops.length > 0 ? (
+                props.crops.map((crop) => (
+                  <tr key={crop._id}>
+                    <td>{crop.name}</td>
+                    <td>
+                      {crop.start_date
+                        ? new Date(crop.start_date).toLocaleDateString()
+                        : "-"}
+                    </td>
+                    <td>
+                      {crop.harvest_date
+                        ? new Date(crop.harvest_date).toLocaleDateString()
+                        : "-"}
+                    </td>
+                    <td>{crop.duration} days</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="4">No crops available</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      <button className={styles.button}>
+      <button className={styles.addButton} onClick={() => setIsFormVisible(!isFormVisible)}>
         <ion-icon name="add-outline"></ion-icon>Add Crop
       </button>
 
-      <div>
-        <form onSubmit={handleSubmitForm}>
-          <label htmlFor="name">Name</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-          <label htmlFor="rain_average">Average Rainfall (mm)</label>
-          <input
-            id="rain_average"
-            name="rain_average"
-            type="number"
-            value={formData.rain_average}
-            onChange={handleChange}
-            required
-          />
-          <label htmlFor="start_date">Start Date</label>
-          <input
-            id="start_date"
-            name="start_date"
-            type="date"
-            value={formData.start_date || ""}
-            onChange={handleChange}
-          />
-          <label htmlFor="end_date">End Date</label>
-          <input
-            id="end_date"
-            name="end_date"
-            type="date"
-            value={formData.end_date || ""}
-            onChange={handleChange}
-          />
-          <label htmlFor="harvest_date">Harvest Date</label>
-          <input
-            id="harvest_date"
-            name="harvest_date"
-            type="date"
-            value={formData.harvest_date || ""}
-            onChange={handleChange}
-          />
-          <label htmlFor="duration">Duration (days)</label>
-          <input
-            id="duration"
-            name="duration"
-            type="number"
-            value={formData.duration}
-            onChange={handleChange}
-          />
-          <button type="submit">
-            {props.selected ? "Update Crop" : "Add New Crop"}
-          </button>
-        </form>
-      </div>
+      {isFormVisible && (
+        <div className={styles.formContainer}>
+          <form onSubmit={handleSubmitForm}>
+            <label htmlFor="name">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+            <label htmlFor="rain_average">Average Rainfall (mm)</label>
+            <input
+              id="rain_average"
+              name="rain_average"
+              type="number"
+              value={formData.rain_average}
+              onChange={handleChange}
+              required
+            />
+            <label htmlFor="start_date">Start Date</label>
+            <input
+              id="start_date"
+              name="start_date"
+              type="date"
+              value={formData.start_date || ""}
+              onChange={handleChange}
+            />
+            <label htmlFor="end_date">End Date</label>
+            <input
+              id="end_date"
+              name="end_date"
+              type="date"
+              value={formData.end_date || ""}
+              onChange={handleChange}
+            />
+            <label htmlFor="harvest_date">Harvest Date</label>
+            <input
+              id="harvest_date"
+              name="harvest_date"
+              type="date"
+              value={formData.harvest_date || ""}
+              onChange={handleChange}
+            />
+            <label htmlFor="duration">Duration (days)</label>
+            <input
+              id="duration"
+              name="duration"
+              type="number"
+              value={formData.duration}
+              onChange={handleChange}
+            />
+            <button type="submit" className={styles.submitButton}>
+              {props.selected ? "Update Crop" : "+ Add Crop To Planner"}
+            </button>
+          </form>
+        </div>
+      )}
 
-      <div className={styles.buttons}>
-        <button>Back</button>
-        <button>Next</button>
+      <div className={styles.navigationButtons}>
+        <button className={styles.navButton}>Back</button>
+        <button className={styles.navButton}>Next</button>
       </div>
     </>
   );

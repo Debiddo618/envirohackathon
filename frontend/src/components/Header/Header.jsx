@@ -1,30 +1,44 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faUser, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import './Header.css';
+import { useNavigate } from "react-router-dom";
+import Flag from "react-world-flags";
+import { useState, useEffect } from 'react';
+import { getUserLocation } from "./locationService"; // Importing the location service
 
 export default function Header() {
+    const [countryCode, setCountryCode] = useState(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchLocation = async () => {
+            const locationCode = await getUserLocation();
+            if (locationCode) {
+                setCountryCode(locationCode);
+            }
+        };
+        fetchLocation();
+    }, []);
+
     return (
         <div className="container-fluid bg-light">
-            <div className="row py-3 d-flex align-items-center shadow">
+            <div className="row py-3 d-flex align-items-center">
                 <div className="col-12 col-md-6 d-flex">
-                    <div className="input-group rounded-pill flex-grow-1">
-                        <input 
-                            type="text" 
-                            className="form-control rounded-pill" 
-                            placeholder="Search" 
-                        />
-                        <span className="input-group-text border-0 bg-transparent rounded-pill"></span>
-                    </div>
+                <FontAwesomeIcon icon={faGlobe} className="globe-icon" />           
+                    <h2 className='header-title'>Terracast</h2>
                 </div>
                 <div className="col-12 col-md-6 d-flex justify-content-end align-items-center gap-3">
+                    {countryCode && (
+                        <div className="flag-icon">
+                            <Flag code={countryCode} alt="User location" width="32" />
+                        </div>
+                    )}
                     <div className="rounded-circle overflow-hidden">
-                    <FontAwesomeIcon icon={faUser} />
+                        <FontAwesomeIcon icon={faUser} onClick={() => navigate("/users/signin")} />
                     </div>
-                    <div className="ml-2 bell-icon">
-                        <FontAwesomeIcon icon={faBell} />
-                    </div>
+                  
                 </div>
             </div>
         </div>
     );
-};
+}

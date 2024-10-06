@@ -1,21 +1,32 @@
-.profile {
-    width: 40px; /* Width for the profile image */
-    height: 40px; /* Height for the profile image */
-    border-radius: 50%; /* Circular image */
+@font-face {
+    font-family: RobotoMono-VariableFont_wght;
+    src: url(../../../public/assets/images/Font/RobotoMono-VariableFont_wght.ttf);
+}
+.globe-icon {
+    font-size: 34px;
+    color: #000000;
+
+}
+
+.header-title {
+    font-size: 34px;
+    font-weight: bold;
+    color: #333;
+    font-family: RobotoMono-VariableFont_wght;
+
 }
 
 .bell-icon {
-    font-size: 1.5rem; /* Size for the bell icon */
+    font-size: 20px;
+    cursor: pointer;
 }
 
-/* Additional styles for responsiveness */
-@media (max-width: 576px) {
-    .profile {
-        width: 30px; /* Smaller profile image on extra small screens */
-        height: 30px; /* Smaller profile image on extra small screens */
-    }
-    
-    .bell-icon {
-        font-size: 1.2rem; /* Smaller icon on extra small screens */
-    }
+/* .rounded-circle {
+    font-size: 20px;
+    cursor: pointer;
+} */
+
+.flag-icon {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
+
