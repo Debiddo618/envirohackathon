@@ -14,7 +14,7 @@ const Crops = (props) => {
   const [formData, setFormData] = useState(
     props.selected ? props.selected : initialState
   );
-  const [isFormVisible, setIsFormVisible] = useState(false); // State to manage form visibility
+  const [isFormVisible, setIsFormVisible] = useState(false);
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
@@ -28,56 +28,58 @@ const Crops = (props) => {
       props.handleAddCrop(formData);
     }
     setFormData(initialState);
-    setIsFormVisible(false); // Hide form after submission
+    setIsFormVisible(false);
   };
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.cropsContainer}>
         <h1>Step 2:</h1>
         <p>Set Your Crop Schedule!</p>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>CROP</th>
-              <th>PLANT</th>
-              <th>HARVEST</th>
-              <th>DURATION</th>
-            </tr>
-          </thead>
-          <tbody>
-            {props.crops && props.crops.length > 0 ? (
-              props.crops.map((crop) => (
-                <tr key={crop._id}>
-                  <td>{crop.name}</td>
-                  <td>
-                    {crop.start_date
-                      ? new Date(crop.start_date).toLocaleDateString()
-                      : "-"}
-                  </td>
-                  <td>
-                    {crop.harvest_date
-                      ? new Date(crop.harvest_date).toLocaleDateString()
-                      : "-"}
-                  </td>
-                  <td>{crop.duration} days</td>
-                </tr>
-              ))
-            ) : (
+        <div className={styles.tableContainer}>
+          <table className={styles.cropTable}>
+            <thead>
               <tr>
-                <td colSpan="4">No crops available</td>
+                <th className={styles.tableHeader}>CROP</th>
+                <th className={styles.tableHeader}>PLANT</th>
+                <th className={styles.tableHeader}>HARVEST</th>
+                <th className={styles.tableHeader}>DURATION</th>
               </tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {props.crops && props.crops.length > 0 ? (
+                props.crops.map((crop) => (
+                  <tr key={crop._id}>
+                    <td>{crop.name}</td>
+                    <td>
+                      {crop.start_date
+                        ? new Date(crop.start_date).toLocaleDateString()
+                        : "-"}
+                    </td>
+                    <td>
+                      {crop.harvest_date
+                        ? new Date(crop.harvest_date).toLocaleDateString()
+                        : "-"}
+                    </td>
+                    <td>{crop.duration} days</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="4">No crops available</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      <button className={styles.button} onClick={() => setIsFormVisible(!isFormVisible)}>
+      <button className={styles.addButton} onClick={() => setIsFormVisible(!isFormVisible)}>
         <ion-icon name="add-outline"></ion-icon>Add Crop
       </button>
 
-      {isFormVisible && ( // Toggle form visibility
-        <div>
+      {isFormVisible && (
+        <div className={styles.formContainer}>
           <form onSubmit={handleSubmitForm}>
             <label htmlFor="name">Name</label>
             <input
@@ -129,16 +131,16 @@ const Crops = (props) => {
               value={formData.duration}
               onChange={handleChange}
             />
-            <button type="submit">
+            <button type="submit" className={styles.submitButton}>
               {props.selected ? "Update Crop" : "+ Add Crop To Planner"}
             </button>
           </form>
         </div>
       )}
 
-      <div className={styles.buttons}>
-        <button>Back</button>
-        <button>Next</button>
+      <div className={styles.navigationButtons}>
+        <button className={styles.navButton}>Back</button>
+        <button className={styles.navButton}>Next</button>
       </div>
     </>
   );
