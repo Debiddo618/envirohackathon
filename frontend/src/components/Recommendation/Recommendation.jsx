@@ -108,13 +108,6 @@ const Recommendation = () => {
         1.687333333333333, 1.3953333333333335, 1.633666666666667,
         2.074333333333333, 1.3143333333333331,
       ];
-
-  const cropArray = [
-    { name: "corn", rain: 0.6 },
-    { name: "wheat", rain: 0.3 },
-    { name: "rice", rain: 1.2 },
-  ];
-
   function longestIndexesBetween(arr, x) {
     let maxDistance = 0;
     let result = null;
