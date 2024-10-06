@@ -139,53 +139,56 @@ const Recommendation = () => {
   });
 
   return (
-    <div className={styles.containerFluid}>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "flex-end",
-          marginBottom: "10px",
-        }}
-      >
-      </div>
+    <div className={styles.ganttContainer}>
+      <div className={styles.gantt}>
+        <div className={`${styles.line} ${styles["line-1"]}`}></div>
+        <div className={`${styles.line} ${styles["line-2"]}`}></div>
+        <div className={`${styles.line} ${styles["line-3"]}`}></div>
+        <div className={`${styles.line} ${styles["line-4"]}`}></div>
+        <div className={`${styles.line} ${styles["line-5"]}`}></div>
+        <div className={`${styles.line} ${styles["line-6"]}`}></div>
+        <div className={`${styles.line} ${styles["line-7"]}`}></div>
+        <div className={`${styles.line} ${styles["line-8"]}`}></div>
+        <div className={`${styles.line} ${styles["line-9"]}`}></div>
+        <div className={`${styles.line} ${styles["line-10"]}`}></div>
+        <div className={`${styles.line} ${styles["line-11"]}`}></div>
+        <div className={`${styles.line} ${styles["line-12"]}`}></div>
+        <div className={`${styles.line} ${styles["line-13"]}`}></div>
+        {months.map((month, index) => (
+          <div key={index} className={styles.head}>
+            {month}
+          </div>
+        ))}
 
-      <div className={styles.ganttContainer}>
-        <div className={styles.gantt}>
-          {months.map((month, index) => (
-            <div key={index} className={styles.head}>
-              {month}
-            </div>
-          ))}
+        {crops.length > 0 ? (
+          crops.map((crop, index) => {
+            const span = longestIndexesBetween(
+              monthlyDailyRainFall,
+              crop.rain_average
+            );
+            const gridColumn = span
+              ? `${span[0] + 1} / span ${span[1] - span[0] + 1}`
+              : "1 / span 1";
 
-          {crops.length > 0 ? (
-            crops.map((crop, index) => {
-              const span = longestIndexesBetween(
-                monthlyDailyRainFall,
-                crop.rain_average
-              );
-              const gridColumn = span
-                ? `${span[0] + 1} / span ${span[1] - span[0] + 1}`
-                : "1 / span 1";
-
-              return (
-                <div
-                  key={crop.name}
-                  style={{
-                    marginBottom: "3px",
-                    background: getRandomHexColor(),
-                    gridRow: index + 2,
-                    gridColumn: gridColumn,
-                    textAlign: "center",
-                  }}
-                >
-                  {crop.name}
-                </div>
-              );
-            })
-          ) : (
-            <h1>Loading</h1>
-          )}
-        </div>
+            return (
+              <div
+                key={crop.name}
+                className={styles.data}
+                style={{
+                  background: getRandomHexColor(),
+                  gridRow: index + 2,
+                  gridColumn: gridColumn,
+                  textAlign: "center",
+                  color: "white",
+                }}
+              >
+                <div className={styles.crop}>{crop.name}</div>
+              </div>
+            );
+          })
+        ) : (
+          <h1>Loading</h1>
+        )}
       </div>
     </div>
   );
