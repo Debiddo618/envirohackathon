@@ -80,7 +80,9 @@ const Crops = (props) => {
 
       {isFormVisible && (
         <div className={styles.formContainer}>
-          <form onSubmit={handleSubmitForm}>
+          <form 
+          className={styles.form}
+          onSubmit={handleSubmitForm}>
             <label htmlFor="name">Name</label>
             <input
               id="name"
