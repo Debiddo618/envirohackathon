@@ -33,7 +33,7 @@ const Crops = (props) => {
       props.handleAddCrop(formData);
     }
     setFormData(initialState);
-    setShowModal(false);
+    setShowModal(false); // Close the modal after submission
   };
 
   return (
@@ -160,14 +160,16 @@ const Crops = (props) => {
       </Modal>
 
       <div className={styles.buttons}>
-        <button>
-          Back
-          <Link to="/" className={styles.link1}></Link>
-        </button>
-        <button>
-          Next
-          <Link to="/rain" className={styles.link2}></Link>
-        </button>
+        <Button variant="light">
+          <Link to="/" className={styles.link1}>
+            Back
+          </Link>
+        </Button>
+        <Button variant="light">
+          <Link to="/rain" className={styles.link2}>
+            Next
+          </Link>
+        </Button>
       </div>
     </>
   );
