@@ -33,6 +33,7 @@ const signup = async (formData) => {
 //Gets the signin route from the backend and return user object
 const signin = async (user) => {
   try {
+    console.log("hello")
     //fetch the signin post route
     const res = await fetch(`${BACKEND_URL}/users/signin`, {
       method: "POST",
