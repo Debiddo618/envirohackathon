@@ -17,7 +17,7 @@ mongoose.connection.on("connected", () => {
 // middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(path.dirname(__dirname), 'frontend', 'dist')))
+app.use(express.static(path.join(path.dirname(__dirname), "frontend", "dist")));
 
 app.use("/api/users", usersRouter);
 app.use("/api/crops", cropRouter);
@@ -26,15 +26,12 @@ app.use("/api/crops", cropRouter);
 // Any other route not matching the routes above gets routed by React
 app.get("*", (req, res) => {
   res.sendFile(
-    path.join(
-      path.dirname(__dirname),
-      "frontend",
-      "dist",
-      "index.html"
-    )
+    path.join(path.dirname(__dirname), "frontend", "dist", "index.html")
   );
 });
 
-app.listen(process.env.PORT, () => {
-    console.log('The express app is ready!');
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

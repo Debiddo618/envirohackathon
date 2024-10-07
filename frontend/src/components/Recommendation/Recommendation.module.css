@@ -13,6 +13,10 @@
   width:0;
   position: relative;
   animation: expand 1s forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 30px;
 }
 
 .gantt .head {

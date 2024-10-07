@@ -81,11 +81,13 @@ const Navbar = (props) => {
         <div className={styles.icon}>
           <div className={styles.section2}>
             <input
+              className={styles.input}
               type="text"
-              placeholder="Enter a city"
+              placeholder="Enter city, state, zipcode"
               value={city}
               onChange={handleChange}
             />
+
             <button
               className={styles.button}
               onClick={() => props.handleSearch(city)}

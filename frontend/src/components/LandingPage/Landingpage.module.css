@@ -1,0 +1,180 @@
+@font-face {
+  font-family: RobotoMono-VariableFont_wght;
+  src: url(../../../public/assets/images/Font/RobotoMono-VariableFont_wght.ttf);
+}
+
+.brandname {
+  color: #f9f5f2;
+  font-family: Canela;
+  font-size: 41.002px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%;
+  letter-spacing: 2.05px;
+  margin-left: 10px;
+}
+.LandingPage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, #c09a85 -12%, #d27d60 50%, #5f5e66 105%);
+}
+.bar {
+  display: flex;
+  justify-content: space-between;
+  margin: 23.5px 144px;
+  height: 81px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img{
+    border: 3px solid white;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.right {
+  display: flex;
+  width: 100px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flag,
+.icon {
+  width: 32px;
+  height: 32px;
+}
+
+.box1 {
+  height: 792px;
+  margin: 0 144px;
+}
+
+.box2 {
+  height: 348px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.box2 h1 {
+  color: #f9f5f2;
+  font-family: Canela;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.2px;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 31px;
+  padding-bottom: 39px;
+}
+
+.input {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 829px;
+  border-radius: 16px;
+  position: relative;
+  height: 40px;
+}
+
+.box3 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.box4 {
+  width: 221px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.box4 button {
+  width: 100px;
+  border-radius: 50px;
+}
+
+.button1 {
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  background-color: transparent;
+  border: 1px solid white;
+  transition: all 0.5s;
+}
+
+.button1:hover {
+  background-color: white;
+  color: rgb(210, 125, 96);
+}
+
+.button2 {
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  background-color: white;
+  border: 1px solid white;
+  transition: all 0.5s;
+  color: rgb(210, 125, 96);
+}
+
+.button2:hover {
+  color: white;
+  background-color: rgb(210, 125, 96);
+}
+
+.search {
+  background-color: transparent;
+  color: black;
+  margin-right: 10px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  outline: none;
+}
+
+.search a {
+  color: rgb(210, 125, 96);
+  transform: scale(1.1);
+}
+
+.search:hover {
+  background-color: transparent;
+  scale: 1;
+}
+.search:focus {
+  border: none;
+  outline: none;
+}
+
+.searchInput {
+  width: 100%;
+  border-radius: 16px;
+  border: none;
+  text-decoration: none;
+}
+
+.searchInput[type="text"] {
+  padding: 20px;
+}

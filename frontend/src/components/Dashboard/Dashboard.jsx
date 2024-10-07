@@ -6,8 +6,8 @@ import TempChart from "../TempChart/TempChart";
 import { useEffect, useState } from "react";
 
 const Dashboard = () => {
-  const[long,setLong]= useState(-102.003998);
-  const[lat,setLat]= useState(22.119671)
+  const [long, setLong] = useState(-102.003998);
+  const [lat, setLat] = useState(22.119671);
   const [sunSet, setSunSet] = useState(null);
   const [sunRise, setSunRise] = useState(null);
 
@@ -23,10 +23,10 @@ const Dashboard = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
-        console.log(data.daily.temperature_2m_max[0])
-        setHigh(data.daily.temperature_2m_max[0])
-        setLow(data.daily.temperature_2m_min[0])
+        console.log(data);
+        console.log(data.daily.temperature_2m_max[0]);
+        setHigh(data.daily.temperature_2m_max[0]);
+        setLow(data.daily.temperature_2m_min[0]);
         setSunSet(data.daily.sunset[0]);
         setSunRise(data.daily.sunrise[0]);
       });
