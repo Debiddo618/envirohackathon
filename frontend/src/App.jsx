@@ -28,7 +28,7 @@ export default function App() {
   const [crops, setCrops] = useState([]);
   const [city, setCity] = useState("miami");
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSignout = () => {
     authService.signout();
