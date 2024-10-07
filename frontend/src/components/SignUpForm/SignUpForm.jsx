@@ -205,7 +205,7 @@ const SignUpForm = (props) => {
             </div>
           </div>
           <div className={styles.buttons}>
-            <button styles={styles.button1}>
+            <button type="button" styles={styles.button1}>
               Back
               <Link to="/" className={styles.link1}></Link>
             </button>
