@@ -41,6 +41,13 @@ const Navbar = (props) => {
     setCity(e.target.value);
   };
 
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => {
+    setShow(!show);
+    props.handleSearch(city);
+  };
+
   return (
     <>
       <nav className={`${styles.container}`}>
@@ -60,17 +67,14 @@ const Navbar = (props) => {
         <div className={styles.icon}>
           <div className={styles.section2}>
             <input
-              className={styles.input}
+              className={show ? styles.input : styles.hide}
               type="text"
               placeholder="Enter city, state, zipcode"
               value={city}
               onChange={handleChange}
             />
 
-            <button
-              className={styles.button}
-              onClick={() => props.handleSearch(city)}
-            >
+            <button className={styles.button} onClick={() => handleShow()}>
               <svg
                 width="24"
                 height="33"

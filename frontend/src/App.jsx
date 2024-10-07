@@ -66,15 +66,16 @@ export default function App() {
   }, [city]);
 
   const handleSearch = (city) => {
-    setCity(city);
-    navigate("/rain");
+    if (city !== "") {
+      setCity(city);
+      navigate("/rain");
+    }
   };
 
   return (
     <Coords.Provider value={coord}>
       <div className="container-fluid">
-
-      <ToastContainer 
+        <ToastContainer
           position="bottom-right"
           autoClose={5000}
           hideProgressBar={false}
