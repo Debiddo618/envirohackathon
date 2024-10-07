@@ -67,6 +67,7 @@ export default function App() {
   const handleSearch = (city) => {
     console.log({ city });
     setCity(city);
+    navigate("/rain");
   };
 
   return (
