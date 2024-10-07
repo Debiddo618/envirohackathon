@@ -1,0 +1,131 @@
+.landing-page {
+    text-align: center;
+    margin-top: 250px;
+
+  }
+  .forcast-lp{
+    text-align: center;
+
+  }
+  .search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-button {
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    background-color: #ffffff;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    margin: 8px;
+    width: 150px;
+    height: 70px;
+  }
+  
+  .search-button:hover {
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  .error-message {
+    color: red;
+  }
+  
+  .result {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+
+.landing-page {
+  text-align: center;
+  padding: 20px;
+}
+
+.search-form {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.search-button {
+  padding: 10px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.error-message {
+  color: red;
+}
+
+.temperature {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.location {
+  font-size: 18px;
+}
+
+.signin-btn {
+  background-color: hsl(0, 0%, 100%);
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.signin-btn:hover {
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+}
+
+.signup-btn {
+  background-color: #000000;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 16px;
+}
+.signup-btn:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 10px;
+  padding-right: 40px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 700px;
+}
+
+.search-icon-btn {
+  position: absolute;
+  right: 10px; 
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #666;
+}
