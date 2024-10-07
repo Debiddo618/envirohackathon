@@ -75,9 +75,9 @@ export default function App() {
       <div className="container-fluid">
 
       <ToastContainer 
-          position="bottom-right"  // Position the toast in the bottom-right corner
-          autoClose={5000}          // Toast will auto-close after 5 seconds
-          hideProgressBar={false}   // Show progress bar
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
           newestOnTop={false}
           closeOnClick
           rtl={false}
