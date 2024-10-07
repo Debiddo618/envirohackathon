@@ -94,6 +94,7 @@ const Recommendation = ({ lat = 0, lon = 0 }) => {
     fetchData();
   }, [lat, lon, nextYearDate]);
 
+  // Set dummy data for testing
   const monthlyDailyRainFall = averageDailyRain.length
     ? averageDailyRain
     : [
@@ -150,10 +151,12 @@ const Recommendation = ({ lat = 0, lon = 0 }) => {
 
         {crops.length > 0 ? (
           crops.map((crop, index) => {
+            // find the longest in interval
             const span = longestIndexesBetween(
               monthlyDailyRainFall,
               crop.rain_average
             );
+            // Increase span size based on the difference between two interval, defaults to 1 if interval does not exist
             const gridColumn = span
               ? `${span[0] + 1} / span ${span[1] - span[0] + 1}`
               : "1 / span 1";
