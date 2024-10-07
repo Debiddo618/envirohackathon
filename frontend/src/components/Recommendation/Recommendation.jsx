@@ -166,6 +166,7 @@ const Recommendation = ({ lat=0, lon=0 }) => {
           <h1>Loading</h1>
         )}
       </div>
+<<<<<<< HEAD
         
 
 
@@ -176,6 +177,8 @@ const Recommendation = ({ lat=0, lon=0 }) => {
 
 
 
+=======
+>>>>>>> 289c911a19b489ad9328d8bc5a7cb8abd4bdae14
     </div>
   );
 };
