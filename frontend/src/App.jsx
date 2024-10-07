@@ -49,7 +49,7 @@ export default function App() {
   };
 
   const [coord, setCoord] = useState([]);
-
+  // make first API call to fetch user input location (lon, lat)
   useEffect(() => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${
       import.meta.env.VITE_OPEN_MAP

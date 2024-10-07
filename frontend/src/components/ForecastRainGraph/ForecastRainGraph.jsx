@@ -12,7 +12,7 @@ import {
   Legend,
 } from "chart.js";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 // Register Chart.js components
 ChartJS.register(
@@ -112,7 +112,7 @@ const ForecastRainGraph = ({ lat, lon }) => {
           onChange={handleRangeChange}
         />
       </div>
-      
+
       <ToastContainer position="top-right" autoClose={5000} />
     </div>
   );

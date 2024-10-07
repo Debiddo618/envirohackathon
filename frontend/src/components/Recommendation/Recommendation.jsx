@@ -75,14 +75,27 @@ const Recommendation = ({ lat = 0, lon = 0 }) => {
             monthlyRain[month] += data.daily.precipitation_sum[index];
           });
 
-          // if (days === 90) {
-          //   setMonths(months.slice(0, 3));
-          // } else if (days === 365) {
-          //   setMonths([
-          //     "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-          //     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-          //   ]);
-          // }
+          /* will use in the future for 3mo/1yr toggle view
+
+          if (days === 90) {
+            setMonths(months.slice(0, 3));
+          } else if (days === 365) {
+            setMonths([
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sep",
+              "Oct",
+              "Nov",
+              "Dec",
+            ]);
+          }
+           */
 
           // Monthly Daily Rain
           setAverageDailyRain(monthlyRain.map((num) => num / 30));

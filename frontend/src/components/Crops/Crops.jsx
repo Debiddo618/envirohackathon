@@ -1,13 +1,13 @@
 import styles from "./Crops.module.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
 
 const Crops = (props) => {
   const [showModal, setShowModal] = useState(false);
-  
+
   const initialState = {
     name: "",
     rain_average: 0,
@@ -85,7 +85,9 @@ const Crops = (props) => {
 
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>{props.selected ? "Update Crop" : "Add Crop"}</Modal.Title>
+          <Modal.Title>
+            {props.selected ? "Update Crop" : "Add Crop"}
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmitForm}>
