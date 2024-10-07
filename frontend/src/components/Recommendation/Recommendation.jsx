@@ -50,12 +50,9 @@ const Recommendation = ({ lat = 0, lon = 0 }) => {
 
   // Hexcode for random green shade
   const getRandomHexColor = () => {
-    const greenValue = Math.floor(Math.random() * 256);
-    const redValue = Math.floor(Math.random() * 128);
-    const blueValue = Math.floor(Math.random() * 128);
-    return `#${redValue.toString(16).padStart(2, "0")}${greenValue
-      .toString(16)
-      .padStart(2, "0")}${blueValue.toString(16).padStart(2, "0")}`;
+    const colors = ["#b99269","#A6A998","#71836D"];
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
   };
 
   const nextYearDate = nextYear(new Date(), days);
