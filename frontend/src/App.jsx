@@ -25,13 +25,7 @@ export default function App() {
   const [coord, setCoord] = useState([]);
 
   const navigate = useNavigate();
-  
-  const handleSearch = (city) => {
-    if (city !== "") {
-      setCity(city);
-      navigate("/rain");
-    }
-  };
+
   const handleSignout = () => {
     authService.signout();
     setUser(null);
@@ -48,6 +42,12 @@ export default function App() {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleSearch = (city) => {
+    console.log({ city });
+    setCity(city);
+    navigate("/rain");
   };
 
   // make first API call to fetch user input location (lon, lat)
@@ -69,9 +69,9 @@ export default function App() {
     <Coords.Provider value={coord}>
       <div className="container-fluid">
         <ToastContainer
-          position="bottom-right"
-          autoClose={5000}
-          hideProgressBar={false}
+          position="bottom-right" 
+          autoClose={5000} 
+          hideProgressBar={false} 
           newestOnTop={false}
           closeOnClick
           rtl={false}
