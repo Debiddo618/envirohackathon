@@ -3,6 +3,8 @@ import { signup } from "../../services/authService";
 import { useNavigate } from "react-router-dom";
 import styles from "./SignUpForm.module.css";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUpForm = (props) => {
   const navigate = useNavigate();
@@ -46,9 +48,13 @@ const SignUpForm = (props) => {
     e.preventDefault();
     try {
       const newUser = await signup(formData);
+      toast.success("Sign-up successful!");  // Trigger toast notification
+      console.log("hello")
       navigate("/crops");
+      
     } catch (err) {
       updateMessage(err.message);
+      toast.error("Sign-up failed: " + err.message); // Trigger toast error
     }
   };
 
@@ -71,6 +77,7 @@ const SignUpForm = (props) => {
   return (
     <div className={styles.outer}>
       <div className={styles.container}>
+    
         <div className={styles.text1}>Step 1:</div>
         <div className={styles.text2}>Create Your Account</div>
         <form onSubmit={handleSubmit}>

@@ -17,6 +17,7 @@ import RainPage from "./components/RainPage/RainPage";
 import Recommendation from "./components/Recommendation/Recommendation";
 import Crops from "./components/Crops/Crops";
 import LandingPage from "./components/LandingPage/Landingpage";
+import { ToastContainer } from "react-toastify";
 
 /*--------------------services--------------- */
 import * as authService from "./services/authService";
@@ -73,6 +74,19 @@ export default function App() {
   return (
     <Coords.Provider value={coord}>
       <div className="container-fluid">
+
+      <ToastContainer 
+          position="bottom-right"  // Position the toast in the bottom-right corner
+          autoClose={5000}          // Toast will auto-close after 5 seconds
+          hideProgressBar={false}   // Show progress bar
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+
         <Navbar
           user={user}
           handleSignout={handleSignout}
