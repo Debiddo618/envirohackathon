@@ -93,6 +93,10 @@
   height: 40px;
 }
 
+input:focus{
+  outline: none;
+}
+
 .box3 {
   width: 100%;
   display: flex;
