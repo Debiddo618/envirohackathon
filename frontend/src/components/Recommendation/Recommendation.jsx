@@ -2,11 +2,21 @@ import React, { useState, useEffect } from "react";
 import styles from "./Recommendation.module.css";
 import * as cropService from "../../services/cropService";
 
-const Recommendation = ({ lat=0, lon=0 }) => {
+const Recommendation = ({ lat = 0, lon = 0 }) => {
   const [averageDailyRain, setAverageDailyRain] = useState([]);
   const [months, setMonths] = useState([
-    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
   ]);
   const [crops, setCrops] = useState([]);
   const [days, setDays] = useState(365);
@@ -43,7 +53,9 @@ const Recommendation = ({ lat=0, lon=0 }) => {
     const greenValue = Math.floor(Math.random() * 256);
     const redValue = Math.floor(Math.random() * 128);
     const blueValue = Math.floor(Math.random() * 128);
-    return `#${redValue.toString(16).padStart(2, "0")}${greenValue.toString(16).padStart(2, "0")}${blueValue.toString(16).padStart(2, "0")}`;
+    return `#${redValue.toString(16).padStart(2, "0")}${greenValue
+      .toString(16)
+      .padStart(2, "0")}${blueValue.toString(16).padStart(2, "0")}`;
   };
 
   const nextYearDate = nextYear(new Date(), days);
@@ -82,6 +94,7 @@ const Recommendation = ({ lat=0, lon=0 }) => {
     fetchData();
   }, [lat, lon, nextYearDate]);
 
+  // Set dummy data for testing
   const monthlyDailyRainFall = averageDailyRain.length
     ? averageDailyRain
     : [
@@ -138,10 +151,12 @@ const Recommendation = ({ lat=0, lon=0 }) => {
 
         {crops.length > 0 ? (
           crops.map((crop, index) => {
+            // find the longest in interval
             const span = longestIndexesBetween(
               monthlyDailyRainFall,
               crop.rain_average
             );
+            // Increase span size based on the difference between two interval, defaults to 1 if interval does not exist
             const gridColumn = span
               ? `${span[0] + 1} / span ${span[1] - span[0] + 1}`
               : "1 / span 1";
@@ -163,7 +178,7 @@ const Recommendation = ({ lat=0, lon=0 }) => {
             );
           })
         ) : (
-          <h1>Loading</h1>
+          <></>
         )}
       </div>
     </div>
