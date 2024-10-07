@@ -3,7 +3,7 @@ import { signup } from "../../services/authService";
 import { useNavigate } from "react-router-dom";
 import styles from "./SignUpForm.module.css";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const SignUpForm = (props) => {
