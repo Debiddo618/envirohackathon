@@ -16,7 +16,7 @@ import ForecastRainGraph from "./components/ForecastRainGraph/ForecastRainGraph"
 import RainPage from "./components/RainPage/RainPage";
 import Recommendation from "./components/Recommendation/Recommendation";
 import Crops from "./components/Crops/Crops";
-import LandingPage from "./Pages/LandingPage/Landingpage/Landingpage";
+import LandingPage from "./components/LandingPage/Landingpage";
 
 /*--------------------services--------------- */
 import * as authService from "./services/authService";
