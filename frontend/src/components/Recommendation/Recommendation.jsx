@@ -166,7 +166,6 @@ const Recommendation = ({ lat=0, lon=0 }) => {
           <h1>Loading</h1>
         )}
       </div>
-      <button>Add Crop</button>
     </div>
   );
 };
