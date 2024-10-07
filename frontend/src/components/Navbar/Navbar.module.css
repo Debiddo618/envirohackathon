@@ -162,5 +162,13 @@
     border-radius: 3px;
     cursor: pointer;
   }
+
+  .section2 input{
+    position: absolute;
+    bottom: 30px;
+    right: 100px;
+    width: 200px;
+  }
     
+
 
