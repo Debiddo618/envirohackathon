@@ -1,0 +1,138 @@
+* {
+ padding: 0;
+ margin: 0;
+}
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url(../../../../public/assets/images/Font/Montserrat-Regular.ttf);
+}
+.landing-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  background: linear-gradient(180deg, #C09A85 -12%, #D27D60 50%, #5F5E66 105%);
+
+}
+  .forcast-lp{
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    font: 40px / 53px Montserrat-Regular, sans-serif
+
+  }
+  .search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-left: 5pxs;
+    
+  }
+  
+  .error-message {
+    color: red;
+  }
+  
+  .result {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+
+.landing-page {
+  text-align: center;
+  padding: 20px;
+}
+
+.search-form {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.error-message {
+  color: red;
+}
+
+.temperature {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.location {
+  font-size: 18px;
+  color: white;
+}
+
+.btn-auth-landing {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signin-btn {
+  background: #D27D60 ;
+  color: rgb(255, 255, 255);
+  padding: 10px 22px;
+  border-style: solid;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 16px;
+  margin-right: 20px;
+  border-color: #ffffff;
+}
+
+.signin-btn:hover {
+  background-color: #fffbfb;
+  color: rgb(0, 0, 0);
+}
+
+.signup-btn {
+  background-color: #D27D60;
+  color: white;
+  padding: 10px 20px;
+  border-style: solid;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 16px;
+  margin-left: 15px;
+}
+.signup-btn:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.search-input {
+  padding: 10px;
+  padding-right: 40px;
+  border: 1px solid white;
+  border-radius: 13px;
+  width: 700px;
+  background-color: #D27D60 ;
+  color: white;
+}
+
+.search-icon-btn {
+  position: absolute;
+  right: 14px; 
+  font-size: 18px;
+  cursor: pointer;
+  color: #A8A7B0 !important;
+  background-color: #D27D60;;
+}
+.search-icon-btn:hover {
+  /* background-color: #D27D60; */
+}
+
