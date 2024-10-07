@@ -23,21 +23,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Create Crop
-const create = async (formData) => {
-  try {
-    // Create a POST request thaty sends JSONified form data to the backend
-    const res = await fetch(BASE_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
-    // Return the response we get back from the backend
-    return await res.json();
-  } catch (err) {
-    console.log(err);
-  }
-};
+
 
 // Delete route
 router.delete("/:cropId", async (req, res) => {
