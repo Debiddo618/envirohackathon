@@ -172,6 +172,10 @@
   transition: all 0.5s;
 }
 
+.section2 input:focus {
+  outline: none;
+}
+
 .section2 .hide{
   width: 0;
   opacity: 0;
