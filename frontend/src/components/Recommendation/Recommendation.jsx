@@ -194,19 +194,6 @@ const Recommendation = ({ lat = 0, lon = 0 }) => {
           <></>
         )}
       </div>
-<<<<<<< HEAD
-        
-
-
-      
-
- 
-
-
-
-
-=======
->>>>>>> 289c911a19b489ad9328d8bc5a7cb8abd4bdae14
     </div>
   );
 };

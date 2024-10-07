@@ -11,8 +11,6 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 // Register Chart.js components
 ChartJS.register(
@@ -37,12 +35,6 @@ const ForecastRainGraph = ({ lat, lon }) => {
       const data = await response.json();
       setRain(data.daily.precipitation_sum);
       setDate(data.daily.time);
-
-      // Check if there's a day with heavy rain (e.g. > 50mm)
-      const heavyRain = data.daily.precipitation_sum.some((rain) => rain > 50);
-      if (heavyRain) {
-        toast.warning("Heavy rain expected! Stay safe.");
-      }
     };
     // Only fetch data if lat and lon are defined
     if (lat !== undefined && lon !== undefined) {
@@ -112,8 +104,6 @@ const ForecastRainGraph = ({ lat, lon }) => {
           onChange={handleRangeChange}
         />
       </div>
-
-      <ToastContainer position="top-right" autoClose={5000} />
     </div>
   );
 };
