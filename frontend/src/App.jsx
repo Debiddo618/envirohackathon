@@ -1,33 +1,28 @@
 import "./App.css";
-import Header from "./components/Header/Header";
-import Notification from "./components/Notification/Notification";
-import Weather from "./components/Weather/Weather";
-import Sunlight from "./components/Sunlight/Sunlight";
-import WeatherChart from "./components/TempChart/TempChart";
-import Map from "./components/Map/Map";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { useState, useEffect, createContext } from "react";
+import { ToastContainer } from "react-toastify";
 import Navbar from "./components/Navbar/Navbar";
 import Dashboard from "./components/Dashboard/Dashboard";
-import { Routes, Route, useNavigate } from "react-router-dom";
 import SignUpForm from "./components/SignUpForm/SignUpForm";
 import SignInForm from "./components/SignInForm/SignInForm";
-import { useState, useEffect, createContext } from "react";
 import CropChart from "./components/CropChart/CropChart";
-import ForecastRainGraph from "./components/ForecastRainGraph/ForecastRainGraph";
 import RainPage from "./components/RainPage/RainPage";
 import Recommendation from "./components/Recommendation/Recommendation";
 import Crops from "./components/Crops/Crops";
 import LandingPage from "./components/LandingPage/Landingpage";
-import { ToastContainer } from "react-toastify";
 
 /*--------------------services--------------- */
 import * as authService from "./services/authService";
 import * as cropService from "./services/cropService";
+
 export const Coords = createContext(null);
 
 export default function App() {
   const [user, setUser] = useState(authService.getUser());
   const [crops, setCrops] = useState([]);
   const [city, setCity] = useState("miami");
+  const [coord, setCoord] = useState([]);
 
   const navigate = useNavigate();
 
@@ -49,7 +44,12 @@ export default function App() {
     }
   };
 
-  const [coord, setCoord] = useState([]);
+  const handleSearch = (city) => {
+    console.log({ city });
+    setCity(city);
+    navigate("/rain");
+  };
+
   // make first API call to fetch user input location (lon, lat)
   useEffect(() => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${
@@ -65,20 +65,13 @@ export default function App() {
     fetchLocation();
   }, [city]);
 
-  const handleSearch = (city) => {
-    console.log({ city });
-    setCity(city);
-    navigate("/rain");
-  };
-
   return (
     <Coords.Provider value={coord}>
       <div className="container-fluid">
-
-      <ToastContainer 
-          position="bottom-right"  // Position the toast in the bottom-right corner
-          autoClose={5000}          // Toast will auto-close after 5 seconds
-          hideProgressBar={false}   // Show progress bar
+        <ToastContainer
+          position="bottom-right" 
+          autoClose={5000} 
+          hideProgressBar={false} 
           newestOnTop={false}
           closeOnClick
           rtl={false}
