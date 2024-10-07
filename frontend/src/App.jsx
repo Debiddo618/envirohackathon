@@ -1,10 +1,4 @@
 import "./App.css";
-import Header from "./components/Header/Header";
-import Notification from "./components/Notification/Notification";
-import Weather from "./components/Weather/Weather";
-import Sunlight from "./components/Sunlight/Sunlight";
-import WeatherChart from "./components/TempChart/TempChart";
-import Map from "./components/Map/Map";
 import Navbar from "./components/Navbar/Navbar";
 import Dashboard from "./components/Dashboard/Dashboard";
 import { Routes, Route, useNavigate } from "react-router-dom";
@@ -12,7 +6,6 @@ import SignUpForm from "./components/SignUpForm/SignUpForm";
 import SignInForm from "./components/SignInForm/SignInForm";
 import { useState, useEffect, createContext } from "react";
 import CropChart from "./components/CropChart/CropChart";
-import ForecastRainGraph from "./components/ForecastRainGraph/ForecastRainGraph";
 import RainPage from "./components/RainPage/RainPage";
 import Recommendation from "./components/Recommendation/Recommendation";
 import Crops from "./components/Crops/Crops";
@@ -49,6 +42,13 @@ export default function App() {
     }
   };
 
+  const handleSearch = (city) => {
+    if (city !== "") {
+      setCity(city);
+      navigate("/rain");
+    }
+  };
+
   const [coord, setCoord] = useState([]);
   // make first API call to fetch user input location (lon, lat)
   useEffect(() => {
@@ -64,13 +64,6 @@ export default function App() {
     };
     fetchLocation();
   }, [city]);
-
-  const handleSearch = (city) => {
-    if (city !== "") {
-      setCity(city);
-      navigate("/rain");
-    }
-  };
 
   return (
     <Coords.Provider value={coord}>
