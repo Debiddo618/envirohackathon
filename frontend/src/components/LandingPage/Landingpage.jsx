@@ -32,7 +32,7 @@ export default function LandingPage(props) {
               type="text"
               value={city}
               onChange={handleChange}
-              placeholder="Enter city"
+              placeholder="Search City"
               className="search-input"
             />
             <button type="submit" className="search-icon-btn">
@@ -44,14 +44,16 @@ export default function LandingPage(props) {
         </form>
 
         {error && <p className="error-message">{error}</p>}
+        <div className="btn-auth-landing">
 
         <button onClick={() => navigate("users/signin")} className="signin-btn">
-          SignIn
+          Sign In
         </button>
 
         <button onClick={() => navigate("users/signup")} className="signup-btn">
-          SignUp
+          Sign Up
         </button>
+        </div>
       </div>
     </>
   );
