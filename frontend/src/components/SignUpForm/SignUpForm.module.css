@@ -92,6 +92,7 @@
   color: #ff9887;
   border: 1px solid #ff9887;
   transition: all 0.5s;
+  position: relative;
 }
 
 .buttons button:nth-child(1):hover {
@@ -120,6 +121,10 @@
     height: 100%;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 
