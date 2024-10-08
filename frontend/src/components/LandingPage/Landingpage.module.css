@@ -183,6 +183,10 @@
   text-decoration: none;
 }
 
+.searchInput:focus {
+  outline: none;
+}
+
 .searchInput[type="text"] {
   padding: 20px;
 }
