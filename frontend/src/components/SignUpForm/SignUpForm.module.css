@@ -106,6 +106,12 @@
   border: 1px solid #ff9887;
 }
 
+.buttons button:nth-child(2) {
+  background-color: #ff9887;
+  color: white;
+  border: 1px solid #ff9887;
+}
+
 .link1{
     display: flex;
     color: #ff9887;
