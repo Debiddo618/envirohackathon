@@ -123,6 +123,8 @@
   background-color: transparent;
   border: 1px solid white;
   transition: all 0.5s;
+  padding: 10px;
+  color: white;
 }
 
 .button1:hover {
@@ -139,6 +141,7 @@
   background-color: white;
   border: 1px solid white;
   transition: all 0.5s;
+  padding: 10px;
   color: rgb(210, 125, 96);
 }
 
