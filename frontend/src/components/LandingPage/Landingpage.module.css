@@ -93,7 +93,7 @@
   height: 40px;
 }
 
-input:focus{
+.input:focus{
   outline: none;
 }
 
@@ -156,6 +156,7 @@ input:focus{
   top: 50%;
   transform: translateY(-50%);
   outline: none;
+  border: none;
 }
 
 .search a {

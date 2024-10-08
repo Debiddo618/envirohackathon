@@ -1,59 +1,17 @@
+.chart-container {
+  width: 80%;
+  margin: auto;
+}
 
 .chart-container {
-    width: 80%;
-    margin: auto;
-  }
-  
+  position: relative;
+  margin: auto;
+  height: auto;
+  width: auto;
+}
 
-  button {
-    background-color: #ffffff; 
-    border: 1px solid #cccccc;
-    padding: 10px 20px;
-    margin-left: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  
-  button:hover {
-    background-color: #f0f0f0;
-  }
-  
-
-  button.active {
-    background-color: #cccccc; 
-  }
-  
-
-  select {
-    border-radius: 5px; 
-    padding: 10px;
-    margin-right: 10px;
-    font-size: 14px;
-  }
-  
-
-  select.corn {
-    background-color: rgba(255, 0, 0, 0.6); 
-  }
-  
-
-  select.soybeans {
-    background-color: rgba(153, 102, 255, 0.6); 
-  }
-  
-
-  .chart-container {
-    position: relative;
-    margin: auto;
-    height: auto;
-    width: auto;
-  }
-  
-
-  .chart-title {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
+.chart-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
