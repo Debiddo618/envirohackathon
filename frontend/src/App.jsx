@@ -38,11 +38,9 @@ export default function App() {
     navigate("/users/signin");
   };
 
-  // Use the create service to make a pet from form data
   const handleAddCrop = async (formData) => {
     try {
       const newCrop = await cropService.create(formData);
-      // add the newPet to the petList array
       setCrops([newCrop, ...crops]);
       setIsFormOpen(false);
     } catch (error) {
@@ -63,6 +61,11 @@ export default function App() {
         });
     };
     fetchLocation();
+    const fetchAllCrops = async () => {
+      const cropsData = await cropService.index();
+      setCrops(cropsData)
+    }
+    fetchAllCrops();
   }, [city]);
 
   return (

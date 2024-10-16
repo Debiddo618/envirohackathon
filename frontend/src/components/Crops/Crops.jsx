@@ -37,18 +37,25 @@ const Crops = (props) => {
   };
 
   return (
-    <>
-      <div className={styles.cropsContainer}>
+    <div className={styles.outer}>
+      <div className={styles.container}>
+        <div className={styles.bar}>
+          <div className={styles.left}></div>
+          <div className={styles.progress1}></div>
+          <div className={styles.middle}></div>
+          <div className={styles.progress2}></div>
+          <div className={styles.right}></div>
+        </div>
         <div className={styles.text1}>Step 2:</div>
         <div className={styles.text2}>Set Your Crop Schedule!</div>
         <div className={styles.tableContainer}>
           <table className={styles.cropTable}>
             <thead>
               <tr>
-                <th className={styles.tableHeader}>CROP</th>
-                <th className={styles.tableHeader}>PLANT</th>
-                <th className={styles.tableHeader}>HARVEST</th>
-                <th className={styles.tableHeader}>DURATION</th>
+                <th>CROP</th>
+                <th>PLANT</th>
+                <th>HARVEST</th>
+                <th>DURATION</th>
               </tr>
             </thead>
             <tbody>
@@ -70,18 +77,28 @@ const Crops = (props) => {
                   </tr>
                 ))
               ) : (
-                <tr>
-                  <td colSpan="4">No crops available</td>
-                </tr>
+                <></>
               )}
             </tbody>
           </table>
+          <Button
+            className={styles.addButton}
+            onClick={() => setShowModal(true)}
+          >
+            <ion-icon name="add-outline"></ion-icon>Add Crop
+          </Button>
+        </div>
+        <div className={styles.buttons}>
+          <button>
+            Back
+            <Link to="/" className={styles.link1}></Link>
+          </button>
+          <button>
+            Next
+            <Link to="/rain" className={styles.link2}></Link>
+          </button>
         </div>
       </div>
-
-      <Button className={styles.addButton} onClick={() => setShowModal(true)}>
-        <ion-icon name="add-outline"></ion-icon>Add Crop
-      </Button>
 
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
@@ -158,18 +175,7 @@ const Crops = (props) => {
           </Button>
         </Modal.Footer>
       </Modal>
-
-      <div className={styles.buttons}>
-        <button>
-          Back
-          <Link to="/" className={styles.link1}></Link>
-        </button>
-        <button>
-          Next
-          <Link to="/rain" className={styles.link2}></Link>
-        </button>
-      </div>
-    </>
+    </div>
   );
 };
 
