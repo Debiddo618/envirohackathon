@@ -76,9 +76,16 @@ const SignUpForm = (props) => {
   return (
     <div className={styles.outer}>
       <div className={styles.container}>
+        <div className={styles.bar}>
+          <div className={styles.left}></div>
+          <div className={styles.progress1}></div>
+          <div className={styles.middle}></div>
+          <div className={styles.progress2}></div>
+          <div className={styles.right}></div>
+        </div>
         <div className={styles.text1}>Step 1:</div>
         <div className={styles.text2}>Create Your Account</div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.groups}>
             <div className={styles.group}>
               <div className={`${styles.formInput} ${styles.formInput1}`}>
